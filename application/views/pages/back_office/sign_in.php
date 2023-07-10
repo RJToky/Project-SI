@@ -7,40 +7,36 @@
   <title>Asio Rezim</title>
 	<link href="https://fonts.cdnfonts.com/css/birica" rel="stylesheet">
 	<link href="https://fonts.cdnfonts.com/css/hai-eisya" rel="stylesheet">
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/output.css"); ?>">
+  <link rel="stylesheet" href="<?php echo base_url("assets/css/output.css"); ?>">
 </head>
-<body class="h-full flex">
-	<div class="w-1/2" style="background: url('<?php echo base_url(); ?>assets/img/bg-sakafo-login.jpg');">
-		<div class="bg-[#111622] flex m-auto items-center h-full" style="--tw-bg-opacity: 0.8;">
-			<div class="flex m-auto w-[70%] flex-col">
-				<h2 class="text-white text-6xl mb-5" style="font-family: 'Hai Eisya';">Bienvenue</h2>
-				<h2 class="text-[#39AEC0] text-7xl mb-5 font-bold" style="font-family: 'Birica';">Asio Rezim</h2>
-				<p class="text-white text-lg leading-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quidem totam et nulla voluptatem laboriosam debitis, nemo dicta</p>
-			</div>
-		</div>
-	</div>
-	<div class="w-1/2 flex items-center justify-center flex-col">
-		<h2 class="text-[#39AEC0] text-5xl font-bold mb-5">Connexion</h2>
-		<form id="form-login" class="flex flex-col w-1/2" action="#" method="post">
-			<div class="p-4 flex flex-col gap-2">
-				<label class="text-gray-500 text-lg font-semibold">Entrer votre email:</label>
-				<input required name="mail" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
-			</div>
-			<div class="p-4 flex flex-col gap-2">
-				<label class="text-gray-500 text-lg font-semibold">Entrer votre mot de passe:</label>
-				<input required name="mdp" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
-			</div>
-			<div class="p-4">
-				<button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full h-14 px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
-					<span class="hidden flex justify-center items-center">
-  					<div class="animate-spin rounded-full h-8 w-8 border-r-2 border-b-4 border-white"></div>
-					</span>
-					<span class="">Se connecter</span>
-				</button>
-			</div>
-			<a href="<?= base_url("C_Index/register") ?>" style="text-decoration: underline; color: #39AEC0;" class="p-4 text-center text-lg">
-				J'ai pas encore du compte!
-			</a>
+<body class="h-full flex bg-gray-100">
+	<div class="container flex items-center justify-center mx-auto flex-col px-4">
+		<h2 class="text-[#39AEC0] text-4xl md:text-5xl font-bold mb-8">Connexion admin</h2>
+		<form id="form-login" class="mx-auto lg:w-1/3 md:w-2/3 w-full" action="#" method="post">
+
+      <div class="rounded-lg p-5 bg-white grid gap-x-1 gap-y-6">
+
+        <div class="px-4 flex flex-col gap-2 sm:col-span-2">
+          <label class="text-gray-500 text-lg font-semibold">Entrer votre email:</label>
+          <input required name="mail" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
+        </div>
+
+        <div class="px-4 flex flex-col gap-2 sm:col-span-2">
+          <label class="text-gray-500 text-lg font-semibold">Entrer votre mot de passe:</label>
+          <input required name="mdp" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
+        </div>
+
+        <div class="px-4 sm:col-span-2">
+          <button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full h-14 px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
+            <span class="hidden flex justify-center items-center">
+              <div class="animate-spin rounded-full h-8 w-8 border-r-2 border-b-4 border-white"></div>
+            </span>
+            <span class="">Se connecter</span>
+          </button>
+        </div>
+
+      </div>
+
 		</form>
 	</div>
 
@@ -70,14 +66,14 @@
 
 				$.ajax({
 					method: "POST",
-					url: "<?= base_url("C_User/login") ?>",
+					url: "<?= base_url("C_User/loginSuperUser") ?>",
 					data: formData,
 					processData: false,
 					contentType: false,
 					success: (response) => {
 						let res = JSON.parse(response);
 						if(res.response === "success") {
-							window.location.href = "<?= base_url("C_Home") ?>";
+							window.location.href = "<?= base_url("C_Admin/index") ?>";
 						} else if (res.response === "error") {
 							$("#message-error").text(res.message);
 							$("#toast-danger").removeClass("hidden");

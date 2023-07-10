@@ -7,7 +7,7 @@ insert into users (nomuser,prenomuser,genreuser,naissanceuser,mailuser,mdpuser) 
 
 
 insert into superuser (mailSuperuser,mdpsuperuser) values 
-('admin@gmail.com','admin');
+('admin@gmail.com', md5('admin'));
 
 insert into detailuser(iduser,tailleuser,poidsuser,dateupdatedetailuser) values (1,160,48,'2023-07-10');
 insert into detailuser(iduser,tailleuser,poidsuser,dateupdatedetailuser) values (2,170,78,'2023-07-10');

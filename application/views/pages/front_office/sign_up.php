@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AsioRezim</title>
+  <title>Asio Rezim</title>
 	<link href="https://fonts.cdnfonts.com/css/birica" rel="stylesheet">
 	<link href="https://fonts.cdnfonts.com/css/hai-eisya" rel="stylesheet">
-<link rel="stylesheet" href="<?php echo base_url("assets/css/output.css"); ?>">
+  <link rel="stylesheet" href="<?php echo base_url("assets/css/output.css"); ?>">
 </head>
 <body class="h-full flex bg-gray-100">
 	<div class="container flex items-center justify-center mx-auto flex-col">
@@ -51,7 +51,7 @@
 
         <div class="px-4 flex flex-col gap-2">
           <label class="text-gray-500 text-lg font-semibold">Confirmer votre mot de passe:</label>
-          <input required name="confirm" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Confirmer">
+          <input required name="confirm" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Confirmation">
         </div>
 
         <div class="px-4 sm:col-span-2">
@@ -89,7 +89,7 @@
 			$("#form-register").submit((e) => {
 				e.preventDefault();
 				$("#btn-submit span:nth-child(1)").removeClass("hidden");
-				$("#btn-submit span:nth-child(2)").addClass("hidden").addClass("animate-bounce");
+				$("#btn-submit span:nth-child(2)").addClass("hidden");
 				var formData = new FormData(document.getElementById("form-register"));
 
 				$.ajax({
