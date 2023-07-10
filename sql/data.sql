@@ -123,3 +123,23 @@ insert into regimepersonne (iduser,idobjectif) values
 (3,2),
 (4,2),
 (5,2);
+
+insert into code (numerocode,montantcode,validitecode) values
+('ABC123',500000,0),
+('DEF456',750000,0),
+('GHI789',1000000,0),
+('JKL012',250000,0),
+('MNO345',300000,0),
+('PQR678',150000,0),
+('STU901',800000,0),
+('VWX234',60000,0),
+('YZA567',120000,0),
+('BCD890',40000,0),
+('EFG123',900000,0),
+('HIJ456',110000,0),
+('KLM789',70000,0),
+('NOP012',95000,0),
+('QRS345',550000,1);
+
+insert into portemonnaieuser (iduser,idcode) values 
+(1,15)

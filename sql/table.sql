@@ -94,3 +94,19 @@ create table kgcalorie (
     kg int,
     calorie float
 );
+
+
+create table code (
+    idcode serial primary key,
+    numerocode varchar,
+    montantcode float,
+    validitecode int
+);
+
+create table portemonnaieuser (
+    idportemonnaie serial primary key,
+    iduser int,
+    idcode int,
+    foreign key (iduser) references users (iduser),
+    foreign key (idcode) references code (idcode)
+);
