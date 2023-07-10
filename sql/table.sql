@@ -106,7 +106,6 @@ create table code (
 create table portemonnaieuser (
     idportemonnaie serial primary key,
     iduser int,
-    idcode int,
-    foreign key (iduser) references users (iduser),
-    foreign key (idcode) references code (idcode)
+    montant float,
+    foreign key (iduser) references users (iduser)
 );
