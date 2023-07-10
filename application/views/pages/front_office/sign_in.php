@@ -26,18 +26,21 @@
 				<label class="text-gray-500 text-lg font-semibold">Entrer votre email:</label>
 				<input name="mail" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
 			</div>
-			<div class="p-4">
+			<div class="p-4 flex flex-col gap-2">
 				<label class="text-gray-500 text-lg font-semibold">Entrer votre mot de passe:</label>
 				<input name="mdp" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
 			</div>
 			<div class="p-4">
-				<button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full h-14 px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg">
+				<button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full h-14 px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
 					<span class="hidden flex justify-center items-center">
   					<div class="animate-spin rounded-full h-8 w-8 border-r-2 border-b-4 border-white"></div>
 					</span>
 					<span class="">Se connecter</span>
 				</button>
 			</div>
+			<a href="<?= base_url("C_Index/register") ?>" style="text-decoration: underline; color: #39AEC0;" class="p-4 text-center text-lg">
+				J'ai pas encore du compte!
+			</a>
 		</form>
 	</div>
 
@@ -48,7 +51,7 @@
         </svg>
         <span class="sr-only">Error icon</span>
     </div>
-    <div id="message-error" class="ml-3 text-sm font-normal">Item has been deleted.</div>
+    <div id="message-error" class="ml-3 text-sm font-normal"></div>
     <button id="button-close" type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-danger" aria-label="Close">
         <span class="sr-only">Close</span>
         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

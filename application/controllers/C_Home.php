@@ -4,10 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class C_Index extends CI_Controller {
 	
 	public function index() {
-		$this->load->view('pages/front_office/sign_in');
-	}
-
-	public function register() {
-		$this->load->view("pages/front_office/sign_up");
+		$this->load->view('pages/front_office/home');
 	}
 }
