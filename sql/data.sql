@@ -91,9 +91,10 @@ insert into regime (nomregime,idobjectif) values
 ('Regime Equilibre Vitalite',2);
 
 insert into prixregime (intervalle1,intervalle2,prixregime) values 
-(1,9,500000),
-(10,19,500000),
-(20,29,500000);
+(1,30,500000),
+(31,60,500000),
+(61,90,500000),
+(91,120,500000);
 
 
 insert into detailregime (idregime,idplat,idsport) values
