@@ -39,12 +39,44 @@ insert into plat (nomplat,apportcalorieplat) values
 ('Pancakes avec sirop d érable',300),
 ('tranches de pain complet avec beurre de cacahuète et tranches de pomme',200);
 
+insert into photoplat (photoplat) values 
+('Salade de poulet.jpg'),
+('Saumon grille.jpg'),
+('Pates avec sauce.jpg'),
+('Wrap avocat.jpg'),
+('Steack boeuf.jpg'),
+('Omelette legumes.jpg'),
+('Riz blanc poulet.jpg'),
+('Chili vegan.jpg'),
+('Salade grecque.jpg'),
+('Buritto boeuf.jpg'),
+('Cheeseburger.jpg'),
+('Pizza.jpg'),
+('Poulet frit.jpg'),
+('Porc sauce barbecue.jpg'),
+('Gratin.jpg'),
+('Flocons d avoine.jpg'),
+('Yaourt.jpg'),
+('Oeuf brouille.jpg'),
+('Smoothie.jpg'),
+('Barres cereales.jpg'),
+('Pancakes.jpg'),
+('Pain perdu.jpg');
+
 insert into sport (nomSport,deficitcalorie) values 
 ('Course à pied',400),
 ('Natation',400),
 ('Cyclisme',400),
 ('Zumba',300),
 ('Escalade en salle',500);
+
+insert into photosport (photosport) values 
+('Running.jpg'),
+('Natation.jpg'),
+('Cyclisme.jpg'),
+('Zumba.jpg'),
+('Zumba.jpg'),
+('Escalade en salle.jpg');
 
 
 insert into objectif ( nomobjectif ) values 
