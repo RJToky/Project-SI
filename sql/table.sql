@@ -42,7 +42,7 @@ create table photoplat (
 create table sport (
     idsport serial primary key,
     nomsport varchar,
-    deficitcalorieplat float
+    deficitcalorie float
 );
 
 create table photosport (

@@ -39,7 +39,7 @@ insert into plat (nomplat,apportcalorieplat) values
 ('Pancakes avec sirop d érable',300),
 ('tranches de pain complet avec beurre de cacahuète et tranches de pomme',200);
 
-insert into sport (nomSport,deficitcalorieplat) values 
+insert into sport (nomSport,deficitcalorie) values 
 ('Course à pied',400),
 ('Natation',400),
 ('Cyclisme',400),
