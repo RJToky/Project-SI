@@ -61,29 +61,45 @@
             $sql = sprintf($sql, $idUser, $idObjectif);
   
             $this->db->query($sql);
-       }
+        }
 
-       public function countUser() {
-        $sql = "SELECT count(iduser) as nbuser FROM users";
+        public function countUser() {
+            $sql = "SELECT count(iduser) as nbuser FROM users";
 
-        $query = $this->db->query($sql);
+            $query = $this->db->query($sql);
 
-        $result = $query->row_array();
+            $result = $query->row_array();
 
-        return $result;
-       }
+            return $result;
+        }
 
-       public function countUserByObjectif($idObjectif) {
-        $sql = "SELECT count(iduser) as nbuser FROM regimepersonne WHERE idobjectif = %d";
+        public function countUserByObjectif($idObjectif) {
+            $sql = "SELECT count(iduser) as nbuser FROM regimepersonne WHERE idobjectif = %d";
 
-        $sql = sprintf($sql, $idObjectif);
+            $sql = sprintf($sql, $idObjectif);
 
-        $query = $this->db->query($sql);
+            $query = $this->db->query($sql);
 
-        $result = $query->row_array();
+            $result = $query->row_array();
 
-        return $result;
-       }
+            return $result;
+        }
+
+        public function initialisePorteMonnaie($idUser) {
+            $sql = "INSERT INTO portemonnaieuser VALUES (default, %d, 0)";
+
+            $sql = sprintf($sql, $idUser);
+
+            $this->db->query($sql);
+        }
+
+        public function updatePorteMonnaie($idUser, $montant) {
+            $sql = "UPDATE portemonnaieuser SET montant = %g WHERE iduser = %d";
+
+            $sql = sprintf($sql, $montant, $idUser);
+
+            $this->db->query($sql);
+        }
 
 
     }
