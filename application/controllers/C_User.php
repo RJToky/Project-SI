@@ -34,15 +34,19 @@ class C_User extends CI_Controller {
         $dtn = $this->input->post('dtn');
         $mail = $this->input->post('mail');
         $mdp = $this->input->post('mdp');
+        $confirm = $this->input->post('confirm');
 
         
-        if($genre == 1 || $genre == 2) {
+        if( ($genre == 1 || $genre == 2) && ($mdp == $confirm) ) {
             $this->user->insertUser($nom, $prenom, $genre, $dtn, $mail, $mdp);
             $statue = array('response' => 'success',
-                            'message' => 'Insérer avec success');
+                            'message' => 'Insertion avec success');
+        } else if ($mdp != $confirm) {
+            $statue = array('response' => 'error',
+                            'message' => 'Veuillez confirmer votre mot de passe');
         } else {
             $statue = array('response' => 'error',
-                            'message' => 'Vérifier vos données');
+                            'message' => 'Vérifiez vos données');
         }
         
         
@@ -95,6 +99,10 @@ class C_User extends CI_Controller {
         $this->session->unset_userdata('id');
 
         
+    }
+
+    public function completion() {
+        $this->load->view("pages/front_office/completion");
     }
     
 }

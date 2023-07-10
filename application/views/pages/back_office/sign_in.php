@@ -14,20 +14,20 @@
 		<h2 class="text-[#39AEC0] text-4xl md:text-5xl font-bold mb-8">Connexion admin</h2>
 		<form id="form-login" class="mx-auto lg:w-1/3 md:w-2/3 w-full" action="#" method="post">
 
-      <div class="rounded-lg p-5 bg-white grid gap-x-1 gap-y-6">
+      <div class="rounded-lg p-5 bg-white shadow-xl grid gap-x-1 gap-y-6">
 
         <div class="px-4 flex flex-col gap-2 sm:col-span-2">
           <label class="text-gray-500 text-lg font-semibold">Entrer votre email:</label>
-          <input required name="mail" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
+          <input required name="mail" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
         </div>
 
         <div class="px-4 flex flex-col gap-2 sm:col-span-2">
           <label class="text-gray-500 text-lg font-semibold">Entrer votre mot de passe:</label>
-          <input required name="mdp" class="w-full text-lg h-14 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
+          <input required name="mdp" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
         </div>
 
         <div class="px-4 sm:col-span-2">
-          <button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full h-14 px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
+          <button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full h-12 px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
             <span class="hidden flex justify-center items-center">
               <div class="animate-spin rounded-full h-8 w-8 border-r-2 border-b-4 border-white"></div>
             </span>

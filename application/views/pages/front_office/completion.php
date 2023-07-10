@@ -11,55 +11,35 @@
 </head>
 <body class="h-full flex bg-gray-100">
 	<div class="container flex items-center justify-center mx-auto flex-col">
-		<h2 class="text-[#39AEC0] text-5xl font-bold mb-8">Inscription</h2>
-		<form id="form-register" class="mx-auto" action="#" method="post">
+		<h2 class="text-[#39AEC0] text-5xl font-bold mb-8">Completion du profil</h2>
+		<form id="form-completion" class="mx-auto w-2/5" action="#" method="post">
 
-      <div class="rounded-lg p-5 bg-white shadow-xl grid grid-cols-1 gap-x-1 gap-y-6 sm:grid-cols-2">
+      <div class="rounded-lg p-5 bg-white shadow-xl flex flex-col">
 
-        <div class="px-4 flex flex-col gap-2">
-          <label class="text-gray-500 text-lg font-semibold">Entrer votre nom:</label>
-          <input required name="nom" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="nom" placeholder="RAKOTOARIVONY">
+        <div class="p-4 flex flex-col gap-2">
+          <label class="text-gray-500 text-lg font-semibold">Entrer votre taille:</label>
+          <input required name="taille" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="number" placeholder="180 mètres">
         </div>
 
-        <div class="px-4 flex flex-col gap-2">
-          <label class="text-gray-500 text-lg font-semibold">Entrer prenom:</label>
-          <input required name="prenom" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="text" placeholder="Judichaël">
+        <div class="p-4 flex flex-col gap-2">
+          <label class="text-gray-500 text-lg font-semibold">Entrer votre poids:</label>
+          <input required name="poids" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="number" placeholder="50 Kg">
         </div>
 
-        <div class="px-4 flex flex-col gap-2 sm:col-span-2">
-          <label class="text-gray-500 text-lg font-semibold">Entrer votre email:</label>
-          <input required name="mail" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
-        </div>
-
-        <div class="px-4 flex flex-col gap-2">
-          <label class="text-gray-500 text-lg font-semibold">Entrer votre genre:</label>
+        <div class="p-4 flex flex-col gap-2">
+          <label class="text-gray-500 text-lg font-semibold">Votre objectif:</label>
           <select required class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" name="genre" id="">
-            <option value="1">Homme</option>
-            <option value="2">Femme</option>
+            <option value="1">Bota</option>
+            <option value="2">Taolana</option>
           </select>
         </div>
 
-        <div class="px-4 flex flex-col gap-2">
-          <label class="text-gray-500 text-lg font-semibold">Entrer votre date de naissance:</label>
-          <input required name="dtn" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="date" placeholder="Mot de passe">
-        </div>
-
-        <div class="px-4 flex flex-col gap-2">
-          <label class="text-gray-500 text-lg font-semibold">Entrer votre mot de passe:</label>
-          <input required name="mdp" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
-        </div>
-
-        <div class="px-4 flex flex-col gap-2">
-          <label class="text-gray-500 text-lg font-semibold">Confirmer votre mot de passe:</label>
-          <input required name="confirm" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Confirmation">
-        </div>
-
-        <div class="px-4 sm:col-span-2">
+        <div class="p-4 sm:col-span-2">
           <button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
             <span class="hidden flex justify-center items-center">
               <div class="animate-spin rounded-full h-8 w-8 border-r-2 border-b-4 border-white"></div>
             </span>
-            <span class="">S'inscrire</span>
+            <span class="">Valider</span>
           </button>
         </div>
 
@@ -86,11 +66,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script>
 		$(document).ready(() => {
-			$("#form-register").submit((e) => {
+			$("#form-completion").submit((e) => {
 				e.preventDefault();
 				$("#btn-submit span:nth-child(1)").removeClass("hidden");
 				$("#btn-submit span:nth-child(2)").addClass("hidden");
-				var formData = new FormData(document.getElementById("form-register"));
+				var formData = new FormData(document.getElementById("form-completion"));
 
 				$.ajax({
 					method: "POST",
