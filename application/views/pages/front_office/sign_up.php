@@ -18,7 +18,7 @@
 
         <div class="px-4 flex flex-col gap-2">
           <label class="text-gray-500 text-lg font-semibold">Entrer votre nom:</label>
-          <input required name="nom" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="nom" placeholder="RAKOTOARIVONY">
+          <input required name="nom" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="text" placeholder="RAKOTOARIVONY">
         </div>
 
         <div class="px-4 flex flex-col gap-2">

@@ -66,7 +66,7 @@
 
 				$.ajax({
 					method: "POST",
-					url: "<?= base_url("C_User/loginSuperUser") ?>",
+					url: "<?= base_url("C_Admin/loginSuperUser") ?>",
 					data: formData,
 					processData: false,
 					contentType: false,
