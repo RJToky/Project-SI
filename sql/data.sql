@@ -90,7 +90,7 @@ insert into regime (nomregime,idobjectif) values
 ('Programme Minceur Actif',2),
 ('Regime Equilibre Vitalite',2);
 
-insert into dureeprixregime (intervalle1,intervalle2,prixregime) values 
+insert into prixregime (intervalle1,intervalle2,prixregime) values 
 (1,9,500000),
 (10,19,500000),
 (20,29,500000);

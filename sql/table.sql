@@ -63,8 +63,8 @@ create table regime (
     foreign key (idobjectif) references objectif (idobjectif)
 );
 
-create table dureeprixregime (
-    iddureeprixregime serial primary key,
+create table prixregime (
+    idprixregime serial primary key,
     intervalle1 int,
     intervalle2 int,
     prixregime float
