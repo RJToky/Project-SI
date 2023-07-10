@@ -9,11 +9,11 @@ insert into users (nomuser,prenomuser,genreuser,naissanceuser,mailuser,mdpuser) 
 insert into superuser (mailSuperuser,mdpsuperuser) values 
 ('admin@gmail.com','admin');
 
-insert into detailuser(iduser,tailleuser,poidsuser,dateUpdateDetailuser) values (1,160,48,'2023-07-10');
-insert into detailuser(iduser,tailleuser,poidsuser,dateUpdateDetailuser) values (2,170,78,'2023-07-10');
-insert into detailuser(iduser,tailleuser,poidsuser,dateUpdateDetailuser) values (3,165,98,'2023-07-10');
-insert into detailuser(iduser,tailleuser,poidsuser,dateUpdateDetailuser) values (4,180,88,'2023-07-10');
-insert into detailuser(iduser,tailleuser,poidsuser,dateUpdateDetailuser) values (5,175,68,'2023-07-10');
+insert into detailuser(iduser,tailleuser,poidsuser,dateupdatedetailuser) values (1,160,48,'2023-07-10');
+insert into detailuser(iduser,tailleuser,poidsuser,dateupdatedetailuser) values (2,170,78,'2023-07-10');
+insert into detailuser(iduser,tailleuser,poidsuser,dateupdatedetailuser) values (3,165,98,'2023-07-10');
+insert into detailuser(iduser,tailleuser,poidsuser,dateupdatedetailuser) values (4,180,88,'2023-07-10');
+insert into detailuser(iduser,tailleuser,poidsuser,dateupdatedetailuser) values (5,175,68,'2023-07-10');
 
 insert into plat (nomplat,apportcalorieplat) values 
 ('Salade de poulet grillé',350),
@@ -30,7 +30,14 @@ insert into plat (nomplat,apportcalorieplat) values
 ('Pizza au pepperoni avec croûte épaisse',800),
 ('Poulet frit avec purée de pommes de terre et sauce',700),
 ('Ribs de porc avec sauce barbecue et accompagnement',800),
-('Gratin dauphinois',600);
+('Gratin dauphinois',600),
+('Flocons avoine avec des fruits',200),
+('Yaourt nature',600),
+('Oeufs brouillés',600),
+('smoothie aux fruits avec yaourt et épinards',200),
+('Barre de céréales aux amandes',200),
+('Pancakes avec sirop d érable',300),
+('tranches de pain complet avec beurre de cacahuète et tranches de pomme',200);
 
 insert into sport (nomSport,deficitcalorieplat) values 
 ('Course à pied',400),
@@ -47,36 +54,28 @@ insert into objectif ( nomobjectif ) values
 ('Augmenter son poids'),
 ('Réduire son poids');
 
-insert into regime (nomregime,idobjectif,prixregime) values 
-('Regime Gagnepoids',1,50000),
-('Programme Prise de Masse',1,100000),
-('Regime Equilibre',1,60000),
-('Programme Minceur Actif',2,150000),
-('Regime Equilibre Vitalite',2,120000);
+insert into regime (nomregime,idobjectif,poids1,poids2,dureeregime,prixregime) values 
+('Regime Gagnepoids',1,1,10,7,500000),
+('Programme Prise de Masse',1,10,20,7,1000000),
+('Regime Equilibre',2,1,10,7,500000),
+('Programme Minceur Actif',2,10,20,7,1000000),
+('Regime Equilibre Vitalite',2,20,30,7,1500000);
 
 
-insert into detailregimeplat (idplat) values
-(10),
-(15),
-(10),
-(11),
-(12),
-(13),
-(14),
-(1),
-(2),
-(3),
-(1),
-(2),
-(3),
-(4),
-(5);
-
-
-insert into detailregimesport (idsport) values 
-(1),
-(2),
-(3),
-(4),
-(5);
+insert into detailregime (idregime,idplat,idsport) values
+(1,10,1),
+(1,15,2),
+(1,10,3),
+(2,11,4),
+(2,12,5),
+(2,13,1),
+(3,14,2),
+(3,1,6),
+(3,2,7),
+(4,3,1),
+(4,1,2),
+(4,2,3),
+(5,3,4),
+(5,4,5),
+(5,5,2);
 

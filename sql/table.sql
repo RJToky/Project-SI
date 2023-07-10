@@ -60,21 +60,23 @@ create table regime (
     idregime serial primary key,
     nomregime varchar,
     idobjectif int,
+    poids1 float,
+    poids2 float,
+    dureeregime int,
     prixregime float,
     foreign key (idobjectif) references objectif (idobjectif)
 );
 
-create table detailregimeplat (
-    idregime serial primary key,
+create table detailregime (
+    iddetailregime serial primary key,
+    idregime int,
     idplat int,
-    foreign key (idplat) references plat (idplat)
-);
-
-create table detailregimesport (
-    idregime serial primary key,
     idsport int,
+    foreign key (idregime) references regime (idregime),
+    foreign key (idplat) references plat (idplat),
     foreign key (idsport) references sport (idsport)
 );
+
 
 create table regimepersonne (
     idregimepersonne serial primary key,
