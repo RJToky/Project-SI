@@ -55,4 +55,9 @@ insert into regime (nomRegime,idObjetif) values
 ('Régime Équilibre Vitalité',2);
 
 
-insert into detailRegime (idPlat,idSport) values 
+insert into detailRegimePlat (idPlat) values
+(),
+
+
+insert into detailRegimeSport (idSport) values 
+(),
