@@ -72,6 +72,22 @@ class C_User extends CI_Controller {
 
     }
 
+    public function objectifUser($idobjectif) {
+        $idUser = $this->user->getIdLastUser()["idlastuser"];
+
+        if($idobjectif == 1 || $idobjectif == 2) {
+            $this->user->insertRegimePersonne($idUser, $idobjectif);
+            $statue = array('response' => 'success',
+                            'message' => 'Insérer avec success');
+            redirect(base_url("C_Home/index"));
+
+        } else {
+            $statue = array('response' => 'error',
+                            'message' => 'Vérifier vos données');
+        }
+        echo json_encode($statue);
+    }
+
     public function endSession(){
         $this->session->unset_userdata('id');        
     }

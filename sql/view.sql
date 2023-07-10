@@ -1,5 +1,5 @@
 create or replace view v_platsportregime as
-select detailregime.iddetailregime, detailregime.idregime, detailregime.idplat, plat.apportcalorieplat,plat.nomplat,regime.idobjectif,detailregime.idsport,sport.deficitcalorie,sport.nomsport
+select detailregime.iddetailregime, detailregime.idregime, detailregime.idplat, plat.apportcalorieplat,plat.nomplat,regime.idobjectif, regime.nomregime, detailregime.idsport,sport.deficitcalorie,sport.nomsport, objectif.nomobjectif
 from detailregime
 join regime on regime.idregime = detailregime.idregime
 join plat on plat.idplat = detailregime.idplat
@@ -20,4 +20,4 @@ join v_platsportregime on v_platsportregime.idsport = photosport.idsport;
 
 
 create or replace view v_diffplatsport as
-select idobjectif,idregime,sum(apportcalorieplat) as calorieplat,sum(deficitcalorie) as caloriesport,(sum(apportcalorieplat)-sum(deficitcalorie)) as diffplatsport from platsportregime group by idregime,idobjectif;
+select idobjectif, nomobjectif, idregime, nomregime, sum(apportcalorieplat) as calorieplat,sum(deficitcalorie) as caloriesport,(sum(apportcalorieplat)-sum(deficitcalorie)) as diffplatsport from v_platsportregime group by idregime,idobjectif,nomobjectif,nomregime;

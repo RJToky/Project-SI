@@ -66,14 +66,14 @@
 
 				$.ajax({
 					method: "POST",
-					url: "<?= base_url("C_User/inscription") ?>",
+					url: "<?= base_url("C_User/detailsInscription") ?>",
 					data: formData,
 					processData: false,
 					contentType: false,
 					success: (response) => {
 						let res = JSON.parse(response);
 						if(res.response === "success") {
-							window.location.href = "<?= base_url("C_User/completion") ?>";
+							window.location.href = "<?= base_url("C_User/objectif") ?>";
 						} else if (res.response === "error") {
 							$("#message-error").text(res.message);
 							$("#toast-danger").removeClass("hidden");
