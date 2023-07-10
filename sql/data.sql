@@ -141,5 +141,5 @@ insert into code (numerocode,montantcode,validitecode) values
 ('NOP012',95000,0),
 ('QRS345',550000,1);
 
-insert into portemonnaieuser (iduser,idcode) values 
-(1,15);
+insert into portemonnaieuser (iduser,montant) values 
+(1,550000);
