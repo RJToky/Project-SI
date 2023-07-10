@@ -7,3 +7,7 @@ insert into users (nomUser,prenomUser,genreUser,naissanceUser,mailUser,mdpUser) 
 
 
 insert into detailUser(idUser,tailleUser,poidsUser,dateUpdateDetailUser) values (1,160,48,'2023-07-10');
+insert into detailUser(idUser,tailleUser,poidsUser,dateUpdateDetailUser) values (2,170,78,'2023-07-10');
+insert into detailUser(idUser,tailleUser,poidsUser,dateUpdateDetailUser) values (3,165,98,'2023-07-10');
+insert into detailUser(idUser,tailleUser,poidsUser,dateUpdateDetailUser) values (4,180,88,'2023-07-10');
+insert into detailUser(idUser,tailleUser,poidsUser,dateUpdateDetailUser) values (5,175,68,'2023-07-10');
