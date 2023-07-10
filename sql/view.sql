@@ -21,3 +21,10 @@ join v_platsportregime on v_platsportregime.idsport = photosport.idsport;
 
 create or replace view v_diffplatsport as
 select idobjectif, nomobjectif, idregime, nomregime, sum(apportcalorieplat) as calorieplat,sum(deficitcalorie) as caloriesport,(sum(apportcalorieplat)-sum(deficitcalorie)) as diffplatsport from v_platsportregime group by idregime,idobjectif,nomobjectif,nomregime;
+
+
+create or replace view v_codeuser as 
+select code.numerocode,code.montantcode,code.validitecode,users.prenomuser
+from code 
+join portemonnaieuser on portemonnaieuser.idcode = code.idcode
+join users on users.iduser = portemonnaieuser.iduser;
