@@ -61,5 +61,26 @@ class C_User extends CI_Controller {
         echo json_encode($statue);
 
     }
+
+    public function loginSuperUser() {
+        $data = array();
+
+        $mail = $this->input->post('mail');
+        $mdp = $this->input->post('mdp');
+
+        $data['superUser'] = $this->user->getSuperUser($mail, $mdp);
+
+        if($data['superUser'] == null)
+        {
+            $statue = array('statue' => 'auncun resultat');
+        
+        }
+        else{
+            $statue = array('statue' => 'connect',
+                            'user' => $data['superUser']);
+        }
+
+        echo json_encode($statue);
+    }
     
 }

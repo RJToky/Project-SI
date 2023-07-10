@@ -42,6 +42,18 @@
 
             return $query->result_array()[0];
         }
+
+        public function getSuperUser($email, $password) {
+            $sql = "SELECT * FROM SuperUser WHERE mailSuperUser = '%s' AND mdpSuperUser = md5('%s') ";
+
+            $sql = sprintf($sql, $email, $password);
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+
+            return $result;
+        }
     }
 
 ?>
