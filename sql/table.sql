@@ -30,8 +30,7 @@ create table detailuser (
 create table plat (
     idplat serial primary key,
     nomplat varchar,
-    apportcalorieplat float,
-    prixplat float
+    apportcalorieplat float
 );
 
 create table photoplat (
@@ -61,6 +60,7 @@ create table regime (
     idregime serial primary key,
     nomregime varchar,
     idobjectif int,
+    prixregime float,
     foreign key (idobjectif) references objectif (idobjectif)
 );
 
