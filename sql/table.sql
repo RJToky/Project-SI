@@ -42,12 +42,12 @@ create table photoplat (
 create table sport (
     idsport serial primary key,
     nomsport varchar,
-    deficitcalorieplat float
+    deficitcalorie float
 );
 
-create table photopsort (
+create table photosport (
     idsport int,
-    photopsort varchar,
+    photosport varchar,
     foreign key (idsport) references sport (idsport)
 );
 
@@ -60,11 +60,14 @@ create table regime (
     idregime serial primary key,
     nomregime varchar,
     idobjectif int,
-    poids1 float,
-    poids2 float,
-    dureeregime int,
-    prixregime float,
     foreign key (idobjectif) references objectif (idobjectif)
+);
+
+create table prixregime (
+    idprixregime serial primary key,
+    intervalle1 int,
+    intervalle2 int,
+    prixregime float
 );
 
 create table detailregime (
@@ -86,3 +89,8 @@ create table regimepersonne (
     foreign key (idobjectif) references objectif (idobjectif)
 );
 
+
+create table kgcalorie (
+    kg int,
+    calorie float
+);

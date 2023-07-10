@@ -39,27 +39,63 @@ insert into plat (nomplat,apportcalorieplat) values
 ('Pancakes avec sirop d érable',300),
 ('tranches de pain complet avec beurre de cacahuète et tranches de pomme',200);
 
-insert into sport (nomSport,deficitcalorieplat) values 
+insert into photoplat (photoplat) values 
+('Salade de poulet.jpg'),
+('Saumon grille.jpg'),
+('Pates avec sauce.jpg'),
+('Wrap avocat.jpg'),
+('Steack boeuf.jpg'),
+('Omelette legumes.jpg'),
+('Riz blanc poulet.jpg'),
+('Chili vegan.jpg'),
+('Salade grecque.jpg'),
+('Buritto boeuf.jpg'),
+('Cheeseburger.jpg'),
+('Pizza.jpg'),
+('Poulet frit.jpg'),
+('Porc sauce barbecue.jpg'),
+('Gratin.jpg'),
+('Flocons d avoine.jpg'),
+('Yaourt.jpg'),
+('Oeuf brouille.jpg'),
+('Smoothie.jpg'),
+('Barres cereales.jpg'),
+('Pancakes.jpg'),
+('Pain perdu.jpg');
+
+insert into sport (nomSport,deficitcalorie) values 
 ('Course à pied',400),
 ('Natation',400),
 ('Cyclisme',400),
-('Aérobic',400),
 ('Zumba',300),
-('Boxe',500),
-('Escalade en salle',500),
-('Tennis',300);
+('Escalade en salle',500);
+
+insert into photosport (photosport) values 
+('Running.jpg'),
+('Natation.jpg'),
+('Cyclisme.jpg'),
+('Zumba.jpg'),
+('Zumba.jpg'),
+('Escalade en salle.jpg');
 
 
 insert into objectif ( nomobjectif ) values 
 ('Augmenter son poids'),
 ('Réduire son poids');
 
-insert into regime (nomregime,idobjectif,poids1,poids2,dureeregime,prixregime) values 
-('Regime Gagnepoids',1,1,10,7,500000),
-('Programme Prise de Masse',1,10,20,7,1000000),
-('Regime Equilibre',2,1,10,7,500000),
-('Programme Minceur Actif',2,10,20,7,1000000),
-('Regime Equilibre Vitalite',2,20,30,7,1500000);
+insert into regime (nomregime,idobjectif) values 
+('Regime Gagnepoids',1),
+('Programme Prise de Masse',1),
+('Regime Equilibre',2),
+('Programme Minceur Actif',2),
+('Regime Equilibre Vitalite',2);
+
+insert into prixregime (intervalle1,intervalle2,prixregime) values 
+(1,30,500000),
+(31,60,1500000),
+(61,90,2000000),
+(91,120,2500000);
+(121,null,3000000);
 
 
 insert into detailregime (idregime,idplat,idsport) values
@@ -70,8 +106,8 @@ insert into detailregime (idregime,idplat,idsport) values
 (2,12,5),
 (2,13,1),
 (3,14,2),
-(3,1,6),
-(3,2,7),
+(3,1,2),
+(3,2,1),
 (4,3,1),
 (4,1,2),
 (4,2,3),
@@ -79,3 +115,4 @@ insert into detailregime (idregime,idplat,idsport) values
 (5,4,5),
 (5,5,2);
 
+insert into kgcalorie values (1,2000);
