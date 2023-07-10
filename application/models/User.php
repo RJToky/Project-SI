@@ -62,6 +62,30 @@
   
             $this->db->query($sql);
        }
+
+       public function countUser() {
+        $sql = "SELECT count(iduser) as nbuser FROM users";
+
+        $query = $this->db->query($sql);
+
+        $result = $query->row_array();
+
+        return $result;
+       }
+
+       public function countUserByObjectif($idObjectif) {
+        $sql = "SELECT count(iduser) as nbuser FROM regimepersonne WHERE idobjectif = %d";
+
+        $sql = sprintf($sql, $idObjectif);
+
+        $query = $this->db->query($sql);
+
+        $result = $query->row_array();
+
+        return $result;
+       }
+
+
     }
 
 ?>

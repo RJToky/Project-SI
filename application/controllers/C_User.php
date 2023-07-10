@@ -88,6 +88,7 @@ class C_User extends CI_Controller {
         echo json_encode($statue);
     }
 
+
     public function endSession(){
         $this->session->unset_userdata('id');        
     }

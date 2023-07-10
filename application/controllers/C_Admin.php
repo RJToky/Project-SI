@@ -4,7 +4,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class C_Admin extends CI_Controller {
 	
 	public function index() {
-		$this->load->view('pages/back_office/index');
+		$data = array();
+
+		$nbUser = $this->user->countUser();
+		$nbUserBota = $this->user->countUserByObjectif(1);
+		$nbUserMahia = $this->user->countUserByObjectif(2);
+
+		$data["nbuser"] = $nbUser;
+		$data["nbuserbota"] = $nbUserBota;
+		$data["nbusermahia"] = $nbUserMahia;
+
+		var_dump($data);
+					
+		//$this->load->view('pages/back_office/index', $data);
 	}
 
 	public function loginSuperUser() {

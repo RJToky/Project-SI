@@ -22,9 +22,6 @@ class C_Regime extends CI_Controller {
 
     }
 
-    public function test() {
-        var_dump($this->reg->getPrixRegime(intval($this->input->post('idObjectif'))));
-    }
 
        
 }
