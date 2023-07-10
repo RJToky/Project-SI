@@ -14,7 +14,7 @@
 		<div class="bg-[#111622] flex m-auto items-center h-full" style="--tw-bg-opacity: 0.8;">
 			<div class="flex m-auto w-[70%] flex-col">
 				<h2 class="text-white text-6xl mb-5" style="font-family: 'Hai Eisya';">Bienvenue</h2>
-				<h2 class="text-[#39AEC0] text-7xl mb-5 font-bold" style="font-family: 'Birica';">Asio Rezim</h2>
+				<h2 class="text-[#39AEC0] text-7xl mb-5 font-bold" style="font-family: 'Birica';">Asio'Rezim</h2>
 				<p class="text-white text-lg leading-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quidem totam et nulla voluptatem laboriosam debitis, nemo dicta</p>
 			</div>
 		</div>
@@ -38,7 +38,7 @@
 					<span class="">Se connecter</span>
 				</button>
 			</div>
-			<a href="<?= base_url("C_Index/register") ?>" style="text-decoration: underline; color: #39AEC0;" class="p-4 text-center text-lg">
+			<a href="<?= base_url("C_User/register") ?>" style="text-decoration: underline; color: #39AEC0;" class="p-4 text-center text-lg">
 				J'ai pas encore du compte!
 			</a>
 		</form>

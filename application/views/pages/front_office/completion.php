@@ -26,14 +26,6 @@
           <input required name="poids" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="number" placeholder="50 Kg">
         </div>
 
-        <div class="p-4 flex flex-col gap-2">
-          <label class="text-gray-500 text-lg font-semibold">Votre objectif:</label>
-          <select required class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" name="genre" id="">
-            <option value="1">Bota</option>
-            <option value="2">Taolana</option>
-          </select>
-        </div>
-
         <div class="p-4 sm:col-span-2">
           <button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
             <span class="hidden flex justify-center items-center">

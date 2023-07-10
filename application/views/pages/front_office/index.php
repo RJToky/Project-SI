@@ -10,4 +10,5 @@
 </head>
 <body>
   <?php $this->load->view("partials/front_office/header"); ?>
+
 </body>

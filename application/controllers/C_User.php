@@ -72,37 +72,19 @@ class C_User extends CI_Controller {
 
     }
 
-    public function loginSuperUser() {
-        $data = array();
-
-        $mail = $this->input->post('mail');
-        $mdp = $this->input->post('mdp');
-
-        $data['superUser'] = $this->user->getSuperUser($mail, $mdp);
-
-        if($data['superUser'] == null)
-        {
-            $statue = array('response' => 'error',
-                            'message' => 'Aucun utilisateur correspondant');
-        
-        }
-        else{
-            $this->session->set_userdata('id',$data['superUser']['idsuperuser']);
-            $statue = array('response' => 'success',
-                            'message' => $data['superUser']);
-        }
-
-        echo json_encode($statue);
-    }
-
     public function endSession(){
-        $this->session->unset_userdata('id');
-
-        
+        $this->session->unset_userdata('id');        
     }
+
+    public function register() {
+		$this->load->view("pages/front_office/sign_up");
+	}
 
     public function completion() {
         $this->load->view("pages/front_office/completion");
     }
     
+    public function objectif() {
+        $this->load->view("pages/front_office/objectif");
+    }
 }

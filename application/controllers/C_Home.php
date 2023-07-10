@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Index extends CI_Controller {
+class C_Home extends CI_Controller {
 	
 	public function index() {
-		$this->load->view('pages/front_office/accueil');
+		$this->load->view('pages/front_office/index');
 	}
 }
