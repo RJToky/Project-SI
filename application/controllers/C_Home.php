@@ -7,6 +7,10 @@ class C_Home extends CI_Controller {
 		$this->load->view('pages/front_office/suggestions');
 	}
 
+	public function autres_regimes() {
+		$this->load->view("pages/front_office/autres_regimes");
+	}
+
 	public function detail_regime($idregime) {
 		$this->load->view("pages/front_office/detail_regime");
 	}

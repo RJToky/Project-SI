@@ -2,7 +2,7 @@
   <a href="#" class="text-[#39AEC0] text-4xl font-bold text-center mr-auto" style="font-family: 'Birica';">Asio'Rezim</a>
   <nav class="flex mr-4 gap-4">
     <a href="<?= base_url("C_Home/index"); ?>" class="text-gray-500 font-medium hover:text-[#39AEC0]">Suggestions</a>
-    <a href="#" class="text-gray-500 font-medium hover:text-[#39AEC0]">Autres Régimes</a>
+    <a href="<?= base_url("C_Home/autres_regimes"); ?>" class="text-gray-500 font-medium hover:text-[#39AEC0]">Autres Régimes</a>
     <a href="#" class="text-gray-500 font-medium hover:text-[#39AEC0]">Porte Monnaie</a>
     <a href="#" class="text-gray-500 font-medium hover:text-[#39AEC0]">Contact</a>
   </nav>
