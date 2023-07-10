@@ -54,6 +54,14 @@
 
             return $result;
         }
+
+        public function insertRegimePersonne($idUser, $idObjectif) {
+            $sql = "INSERT INTO regimepersonne VALUES (default, %d, %d)";
+  
+            $sql = sprintf($sql, $idUser, $idObjectif);
+  
+            $this->db->query($sql);
+       }
     }
 
 ?>

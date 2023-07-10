@@ -34,15 +34,19 @@ class C_User extends CI_Controller {
         $dtn = $this->input->post('dtn');
         $mail = $this->input->post('mail');
         $mdp = $this->input->post('mdp');
+        $confirm = $this->input->post('confirm');
 
         
-        if($genre == 1 || $genre == 2) {
+        if( ($genre == 1 || $genre == 2) && ($mdp == $confirm) ) {
             $this->user->insertUser($nom, $prenom, $genre, $dtn, $mail, $mdp);
             $statue = array('response' => 'success',
-                            'message' => 'Insérer avec success');
+                            'message' => 'Insertion avec success');
+        } else if ($mdp != $confirm) {
+            $statue = array('response' => 'error',
+                            'message' => 'Veuillez confirmer votre mot de passe');
         } else {
             $statue = array('response' => 'error',
-                            'message' => 'Vérifier vos données');
+                            'message' => 'Vérifiez vos données');
         }
         
         
@@ -68,33 +72,35 @@ class C_User extends CI_Controller {
 
     }
 
-    public function loginSuperUser() {
-        $data = array();
+    public function objectifUser($idobjectif) {
+        $idUser = $this->user->getIdLastUser()["idlastuser"];
 
-        $mail = $this->input->post('mail');
-        $mdp = $this->input->post('mdp');
-
-        $data['superUser'] = $this->user->getSuperUser($mail, $mdp);
-
-        if($data['superUser'] == null)
-        {
-            $statue = array('response' => 'error',
-                            'message' => 'Aucun utilisateur correspondant');
-        
-        }
-        else{
-            $this->session->set_userdata('id',$data['superUser']['idsuperuser']);
+        if($idobjectif == 1 || $idobjectif == 2) {
+            $this->user->insertRegimePersonne($idUser, $idobjectif);
             $statue = array('response' => 'success',
-                            'message' => $data['superUser']);
-        }
+                            'message' => 'Insérer avec success');
+            redirect(base_url("C_Home/index"));
 
+        } else {
+            $statue = array('response' => 'error',
+                            'message' => 'Vérifier vos données');
+        }
         echo json_encode($statue);
     }
 
     public function endSession(){
-        $this->session->unset_userdata('id');
+        $this->session->unset_userdata('id');        
+    }
 
-        
+    public function register() {
+		$this->load->view("pages/front_office/sign_up");
+	}
+
+    public function completion() {
+        $this->load->view("pages/front_office/completion");
     }
     
+    public function objectif() {
+        $this->load->view("pages/front_office/objectif");
+    }
 }
