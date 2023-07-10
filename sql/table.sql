@@ -89,3 +89,8 @@ create table regimepersonne (
     foreign key (idobjectif) references objectif (idobjectif)
 );
 
+
+create table kgcalorie (
+    kg int,
+    calorie float
+);

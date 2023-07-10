@@ -81,3 +81,4 @@ insert into detailregime (idregime,idplat,idsport) values
 (5,4,5),
 (5,5,2);
 
+insert into kgcalorie values (1,2000);
