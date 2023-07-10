@@ -13,7 +13,7 @@
   <?php $this->load->view("partials/front_office/header"); ?>
 
   <main class="px-36 py-10">
-    <h1 class="mb-6 text-3xl font-semibold text-gray-600">Suggestions de règime</h1>
+    <h1 class="mb-6 text-3xl font-semibold text-gray-600">Suggestions de régime</h1>
 
     <div class="flex flex-wrap gap-10">
 
@@ -78,7 +78,9 @@
             <span class="text-gray-600 py-4 text-center font-semibold">500000 Ar</span>
           </div>
           <div class="flex justify-center">
-            <button class="bg-[#39AEC0] hover:bg-[#2e8c9b] transition-all duration-300 w-full px-4 py-4 text-center font-semibold text-white text-md focus:outline-none">Détail</button>
+            <a href="<?= base_url("C_Home/detail_regime/1"); ?>" class="bg-[#39AEC0] hover:bg-[#40c4d8] transition-all duration-300 w-full px-4 py-4 text-center font-semibold text-white text-md focus:outline-none">
+              Voir détail &rarr;
+            </a>
           </div>
         </div>
 

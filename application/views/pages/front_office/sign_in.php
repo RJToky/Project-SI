@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/output.css"); ?>">
 </head>
 <body class="h-full flex">
-	<div class="w-1/2" style="background: url('<?php echo base_url(); ?>assets/img/bg-sakafo-login.jpg');">
-		<div class="bg-[#111622] flex m-auto items-center h-full" style="--tw-bg-opacity: 0.8;">
+	<div class="w-1/2">
+		<div class="bg-[#111622] flex m-auto items-center h-full">
 			<div class="flex m-auto w-[70%] flex-col">
 				<h2 class="text-white text-6xl mb-5" style="font-family: 'Hai Eisya';">Bienvenue</h2>
 				<h2 class="text-[#39AEC0] text-7xl mb-5 font-bold" style="font-family: 'Birica';">Asio'Rezim</h2>
@@ -31,7 +31,7 @@
 				<input required name="mdp" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
 			</div>
 			<div class="p-4">
-				<button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full h-12 px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
+				<button id="btn-submit" type="submit" class="hover:bg-[#40c4d8] transition-all duration-300 w-full h-12 px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
 					<span class="hidden flex justify-center items-center">
   					<div class="animate-spin rounded-full h-8 w-8 border-r-2 border-b-4 border-white"></div>
 					</span>

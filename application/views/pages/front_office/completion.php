@@ -27,7 +27,7 @@
         </div>
 
         <div class="p-4 sm:col-span-2">
-          <button id="btn-submit" type="submit" class="hover:bg-[#2e8c9b] w-full px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
+          <button id="btn-submit" type="submit" class="hover:bg-[#40c4d8] transition-all duration-300 w-full px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
             <span class="hidden flex justify-center items-center">
               <div class="animate-spin rounded-full h-8 w-8 border-r-2 border-b-4 border-white"></div>
             </span>
