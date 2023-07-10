@@ -80,9 +80,9 @@
             $query = $this->db->query($sql);
 
             return $query->result_array()[0];
-       }
+        }
 
-       public function dureeRegime($idObjectif, $kilo) {
+        public function dureeRegime($idObjectif, $kilo) {
             $result = array();
 
             $sql = "SELECT * FROM v_diffplatsport WHERE idobjectif = %d";
@@ -107,9 +107,9 @@
             }
 
             return $result;
-       }
+        }
 
-       public function getPrixRegime($interv) {
+        public function getPrixRegime($interv) {
             if($interv > 0 && $interv <= 120) {
                 $sql = "SELECT prixregime FROM prixregime WHERE %d >= intervalle1 AND %d <= intervalle2";
             } else if($interv >= 121) {
@@ -123,8 +123,35 @@
 
             return $query->row_array();
 
-       }
+        }
 
+        public function listePlatSportByRegime($idRegime) {
+
+            $result = array();
+            $sql = "SELECT * FROM v_platsportregime WHERE idregime = %d";
+
+            $sql = sprintf($sql, $idRegime);
+
+            $query = $this->db->query($sql);
+
+            foreach($query->result_array() as $row) {
+                $plat = array(
+                    "plat" => $row["nomplat"],
+                    "apportcalorie" => $row["apportcalorieplat"]
+                );
+
+                $sport = array(
+                    "sport" => $row["nomsport"],
+                    "deficitcalorie" => $row["deficitcalorie"]
+                );
+
+                array_push($result, $plat);
+                array_push($result, $sport);
+            }
+
+            return $result;
+
+        }
        
 
     }
