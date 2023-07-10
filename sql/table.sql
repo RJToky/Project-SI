@@ -3,84 +3,84 @@ create database asiorezim;
 \c asiorezim;
 
 create table users (
-    idUser serial primary key,
-    nomUser varchar,
-    prenomUser varchar,
-    genreUser int,
-    naissanceUser date,
-    mailUser varchar,
-    mdpUser varchar
+    iduser serial primary key,
+    nomuser varchar,
+    prenomuser varchar,
+    genreuser int,
+    naissanceuser date,
+    mailuser varchar,
+    mdpuser varchar
 );
 
-create table SuperUser (
-    idSuperUser serial primary key,
-    mailSuperUser varchar,
-    mdpSuperUser varchar
+create table superuser (
+    idsuperuser serial primary key,
+    mailsuperuser varchar,
+    mdpsuperuser varchar
 );
 
-create table detailUser (
-    idDetailUser serial primary key,
-    idUser int,
-    tailleUser float,
-    poidsUser float,
-    dateUpdateDetailUser date,
-    foreign key (idUser) references users (idUser)
+create table detailuser (
+    iddetailuser serial primary key,
+    iduser int,
+    tailleuser float,
+    poidsuser float,
+    dateupdatedetailuser date,
+    foreign key (iduser) references users (iduser)
 );
 
 create table plat (
-    idPlat serial primary key,
-    nomPlat varchar,
-    apportCaloriePlat float,
-    prixPlat float
+    idplat serial primary key,
+    nomplat varchar,
+    apportcalorieplat float,
+    prixplat float
 );
 
-create table photoPlat (
-    idPlat int,
-    photoPlat varchar,
-    foreign key (idPlat) references plat (idPlat)
+create table photoplat (
+    idplat int,
+    photoplat varchar,
+    foreign key (idplat) references plat (idplat)
 );
 
 create table sport (
-    idSport serial primary key,
-    nomSport varchar,
-    deficitCalorePlat float
+    idsport serial primary key,
+    nomsport varchar,
+    deficitcalorieplat float
 );
 
-create table photoSport (
-    idSport int,
-    photoSport varchar,
-    foreign key (idSport) references sport (idSport)
+create table photopsort (
+    idsport int,
+    photopsort varchar,
+    foreign key (idsport) references sport (idsport)
 );
 
-create table objetif (
-    idObjetif serial primary key,
-    nomObjectif varchar
+create table objectif (
+    idobjectif serial primary key,
+    nomobjectif varchar
 );
 
 create table regime (
-    idRegime serial primary key,
-    nomRegime varchar,
-    idObjetif int,
-    foreign key (idObjetif) references objetif (idObjetif)
+    idregime serial primary key,
+    nomregime varchar,
+    idobjectif int,
+    foreign key (idobjectif) references objectif (idobjectif)
 );
 
-create table detailRegimePlat (
-    idRegime serial primary key,
-    idPlat int,
-    foreign key (idPlat) references plat (idPlat)
+create table detailregimeplat (
+    idregime serial primary key,
+    idplat int,
+    foreign key (idplat) references plat (idplat)
 );
 
-create table detailRegimeSport (
-    idRegime serial primary key,
-    idSport int
-    foreign key (idSport) references sport (idSport)
+create table detailregimesport (
+    idregime serial primary key,
+    idsport int,
+    foreign key (idsport) references sport (idsport)
 );
 
-create table regimePersonne (
-    idRegimePersonne serial primary key,
-    idUser int,
-    idObjetif int,
-    foreign key (idUser) references users (idUser),
-    foreign key (idObjetif) references objetif (idObjetif)
+create table regimepersonne (
+    idregimepersonne serial primary key,
+    iduser int,
+    idobjectif int,
+    foreign key (iduser) references users (iduser),
+    foreign key (idobjectif) references objectif (idobjectif)
 );
 
