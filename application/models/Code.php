@@ -36,6 +36,14 @@
             return $query->row_array();
         }
 
+        public function validateCodeUser($idUser) {
+            $sql = "UPDATE codeuser SET validitecode = 1 WHERE iduser = %d";
+
+            $sql = sprintf($sql, $idUser);
+
+            $this->db->query($sql);
+        }
+
     }
 
 ?>

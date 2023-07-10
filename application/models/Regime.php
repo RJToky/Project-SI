@@ -154,6 +154,44 @@
         }
        
 
+        public function insertPrixRegime($intervalle1, $intervalle2, $prixregime) {
+            $sql = "INSERT INTO prixregime VALUES (default, %d, %d, %g)";
+
+            $sql = sprintf($sql, $intervalle1, $intervalle2, $prixregime);
+
+            $this->db->query($sql);
+        }
+
+        public function updatePrixRegime($idprixregime, $intervalle1, $intervalle2, $prixregime) {
+            $sql = "UPDATE prixregime SET intervalle1 = %d, intervalle2 = %d, prixregime = %g WHERE idprixregime = %d";
+
+            $sql = sprintf($sql, $intervalle1, $intervalle2, $prixregime, $idprixregime);
+
+            $this->db->query($sql);
+        }
+
+        public function deletePrixRegime($idPrixRegime) {
+            $sql = "DELETE FROM prixregime WHERE idprixregime = %d";
+
+            $sql = sprintf($sql, $idPrixRegime);
+
+            $this->db->query($sql);
+        }
+
+        public function getPrixRegime() {
+            $result = array();
+
+            $sql = "SELECT * FROM prixregime";
+
+            $query = $this->db->query($sql);
+
+            foreach($query->result_array() as $row) {
+                $result [] = $row;
+            }
+
+            return $result;
+        }
+
     }
 
 ?>
