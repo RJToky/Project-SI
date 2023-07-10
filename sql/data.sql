@@ -124,7 +124,7 @@ insert into regimepersonne (iduser,idobjectif) values
 (4,2),
 (5,2);
 
-insert into code (numerocode,montantcode,validitecode) values
+insert into code (numerocode,montantcode) values
 ('ABC123',500000),
 ('DEF456',750000),
 ('GHI789',1000000),
@@ -146,3 +146,6 @@ insert into codeuser (idcode,iduser,validitecode) values
 
 insert into portemonnaieuser (iduser,montant) values 
 (1,550000);
+
+insert into achatuser (iduser,montant,idregime,confirmationachat) values 
+(1,40000,1,0);
