@@ -54,12 +54,19 @@ insert into objectif ( nomobjectif ) values
 ('Augmenter son poids'),
 ('Réduire son poids');
 
-insert into regime (nomregime,idobjectif,poids1,poids2,dureeregime,prixregime) values 
-('Regime Gagnepoids',1,1,10,7,500000),
-('Programme Prise de Masse',1,10,20,7,1000000),
-('Regime Equilibre',2,1,10,7,500000),
-('Programme Minceur Actif',2,10,20,7,1000000),
-('Regime Equilibre Vitalite',2,20,30,7,1500000);
+insert into regime (nomregime,idobjectif,poids1,poids2) values 
+('Regime Gagnepoids',1,1,10),
+('Programme Prise de Masse',1,10,20),
+('Regime Equilibre',2,1,10),
+('Programme Minceur Actif',2,10,20),
+('Regime Equilibre Vitalite',2,20,30);
+
+insert into dureeprixregime (dureeregime,prixregime,idregime) values 
+(7,500000,1),
+(7,1000000,2),
+(7,500000,3),
+(7,1000000,4),
+(7,1500000,5);
 
 
 insert into detailregime (idregime,idplat,idsport) values
