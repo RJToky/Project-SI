@@ -1,6 +1,6 @@
-create database regime;
+create database asiorezim;
 
-\c regime;
+\c asiorezim;
 
 create table users (
     idUser serial primary key,
