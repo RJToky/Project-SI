@@ -62,9 +62,15 @@ create table regime (
     idobjectif int,
     poids1 float,
     poids2 float,
+    foreign key (idobjectif) references objectif (idobjectif)
+);
+
+create table dureeprixregime (
+    iddureeprixregime serial primary key,
     dureeregime int,
     prixregime float,
-    foreign key (idobjectif) references objectif (idobjectif)
+    idregime int,
+    foreign key (idregime) references regime (idregime)
 );
 
 create table detailregime (
