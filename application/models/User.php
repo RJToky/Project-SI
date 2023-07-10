@@ -4,7 +4,7 @@
     class User extends CI_Model {
         
         public function getUser($email, $password) {
-            $sql = "SELECT * FROM users WHERE mailUser = '%s' AND mdpUser = '%s' ";
+            $sql = "SELECT * FROM users WHERE mailUser = '%s' AND mdpUser = md5('%s') ";
 
             $sql = sprintf($sql, $email, $password);
 
@@ -16,32 +16,31 @@
             
         }
 
-        public function insertUser($nom, $prenom, $mail, $mdp) {
-            $sql = "INSERT INTO users VALUES (default, '%s', '%s', '%s', '%s')";
+        public function insertUser($nom, $prenom, $genre, $dtn, $mail, $mdp) {
+            $sql = "INSERT INTO users VALUES (default, '%s', '%s', %d, '%s', '%s', md5('%s'))";
 
-            $sql = sprintf($sql, $nom, $prenom, $mail, $mdp);
+            $sql = sprintf($sql, $nom, $prenom, $genre, $dtn, $mail, $mdp);
 
             $this->db->query($sql);
         }
 
-        public function insertDetailUser($idUtilisateur, $taille, $poids, $dateUpdate) {
-            $sql = "INSERT INTO detailUser VALUES (default, %d, %d, %d, '%s')";
+        public function insertDetailUser($idUtilisateur, $taille, $poids) {
+            $sql = "INSERT INTO detailUser VALUES (default, %d, %d, %d, NOW())";
 
-            $sql = sprintf($sql, $idUtilisateur, $taille, $poids, $dateUpdate);
+            $sql = sprintf($sql, $idUtilisateur, $taille, $poids);
 
             $this->db->query($sql);
         }
 
         public function getIdLastUser() {
-            $result = array();
 
             $sql = "SELECT COUNT(idUser) as idLastUser FROM users";
 
             $query = $this->db->query($sql);
 
-            $result [] = $query->result_array()[0];
+            
 
-            return $result["idUser"];
+            return $query->result_array()[0];
         }
     }
 
