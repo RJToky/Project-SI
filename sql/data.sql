@@ -92,9 +92,10 @@ insert into regime (nomregime,idobjectif) values
 
 insert into prixregime (intervalle1,intervalle2,prixregime) values 
 (1,30,500000),
-(31,60,500000),
-(61,90,500000),
-(91,120,500000);
+(31,60,1500000),
+(61,90,2000000),
+(91,120,2500000);
+(121,null,3000000);
 
 
 insert into detailregime (idregime,idplat,idsport) values
