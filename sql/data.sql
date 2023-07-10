@@ -6,6 +6,9 @@ insert into users (nomUser,prenomUser,genreUser,naissanceUser,mailUser,mdpUser) 
 ('WellnessSeeker','Laura',2,'1994-11-05','laura94wellness@gmail.com',md5('laura94'));
 
 
+insert into SuperUser (mailSuperUser,mdpSuperUser) values 
+('admin@gmail.com','admin');
+
 insert into detailUser(idUser,tailleUser,poidsUser,dateUpdateDetailUser) values (1,160,48,'2023-07-10');
 insert into detailUser(idUser,tailleUser,poidsUser,dateUpdateDetailUser) values (2,170,78,'2023-07-10');
 insert into detailUser(idUser,tailleUser,poidsUser,dateUpdateDetailUser) values (3,165,98,'2023-07-10');
@@ -43,3 +46,13 @@ insert into sport (nomSport,deficitCalorePlat) values
 insert into objetif (nomObjectif) values 
 ('Augmenter son poids'),
 ('Réduire son poids');
+
+insert into regime (nomRegime,idObjetif) values 
+('Régime Gagnepoids',1),
+('Programme Prise de Masse',1),
+('Régime Équilibre+',1),
+('Programme Minceur Actif',2),
+('Régime Équilibre Vitalité',2);
+
+
+insert into detailRegime (idPlat,idSport) values 

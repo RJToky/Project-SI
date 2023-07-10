@@ -64,11 +64,15 @@ create table regime (
     foreign key (idObjetif) references objetif (idObjetif)
 );
 
-create table detailRegime (
+create table detailRegimePlat (
     idRegime serial primary key,
     idPlat int,
-    idSport int,
-    foreign key (idPlat) references plat (idPlat),
+    foreign key (idPlat) references plat (idPlat)
+);
+
+create table detailRegimeSport (
+    idRegime serial primary key,
+    idSport int
     foreign key (idSport) references sport (idSport)
 );
 
