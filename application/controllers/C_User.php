@@ -14,12 +14,14 @@ class C_User extends CI_Controller {
 
         if($data['user'] == null)
         {
-            $statue = array('statue' => 'auncun resultat');
+            $statue = array('response' => 'error',
+                            'message' => 'Aucun utilisateur correspondant');
         
         }
         else{
-            $statue = array('statue' => 'connect',
-                            'user' => $data['user']);
+            $statue = array('response' => 'success',
+                            'message' => $data['user']);
+            $this->session->set_userdata('id',$data['user']['iduser']);
         }
 
         echo json_encode($statue);
@@ -36,9 +38,11 @@ class C_User extends CI_Controller {
         
         if($genre == 1 || $genre == 2) {
             $this->user->insertUser($nom, $prenom, $genre, $dtn, $mail, $mdp);
-            $statue = array('statue' => 'inserer avec success');
+            $statue = array('response' => 'success',
+                            'message' => 'Insérer avec success');
         } else {
-            $statue = array('statue' => 'erreur');
+            $statue = array('response' => 'error',
+                            'message' => 'Vérifier vos données');
         }
         
         
@@ -51,11 +55,13 @@ class C_User extends CI_Controller {
         $poids = intval($this->input->post('poids'));
 
         
-        if($taille == 0 || $poids == 0) {
-            $statue = array('statue' => 'erreur');
+        if(($taille == 0 || $poids == 0) || ($taille == 0 && $poids == 0)) {
+            $statue = array('response' => 'error',
+                            'message' => 'Vérifier vos données');
         } else {
             $this->user->insertDetailUser($idUser, $taille, $poids);
-            $statue = array('statue' => 'inserer avec success');
+            $statue = array('response' => 'success',
+                            'message' => 'Insérer avec success');
         }
            
         echo json_encode($statue);
@@ -72,15 +78,23 @@ class C_User extends CI_Controller {
 
         if($data['superUser'] == null)
         {
-            $statue = array('statue' => 'auncun resultat');
+            $statue = array('response' => 'error',
+                            'message' => 'Aucun utilisateur correspondant');
         
         }
         else{
-            $statue = array('statue' => 'connect',
-                            'user' => $data['superUser']);
+            $this->session->set_userdata('id',$data['superUser']['idsuperuser']);
+            $statue = array('response' => 'success',
+                            'message' => $data['superUser']);
         }
 
         echo json_encode($statue);
+    }
+
+    public function endSession(){
+        $this->session->unset_userdata('id');
+
+        
     }
     
 }

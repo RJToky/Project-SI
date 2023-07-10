@@ -4,7 +4,7 @@
     class User extends CI_Model {
         
         public function getUser($email, $password) {
-            $sql = "SELECT * FROM users WHERE mailUser = '%s' AND mdpUser = md5('%s') ";
+            $sql = "SELECT * FROM users WHERE mailuser = '%s' AND mdpuser = md5('%s') ";
 
             $sql = sprintf($sql, $email, $password);
 
@@ -25,7 +25,7 @@
         }
 
         public function insertDetailUser($idUtilisateur, $taille, $poids) {
-            $sql = "INSERT INTO detailUser VALUES (default, %d, %d, %d, NOW())";
+            $sql = "INSERT INTO detailuser VALUES (default, %d, %d, %d, NOW())";
 
             $sql = sprintf($sql, $idUtilisateur, $taille, $poids);
 
@@ -34,7 +34,7 @@
 
         public function getIdLastUser() {
 
-            $sql = "SELECT COUNT(idUser) as idLastUser FROM users";
+            $sql = "SELECT COUNT(iduser) as idlastuser FROM users";
 
             $query = $this->db->query($sql);
 
@@ -44,7 +44,7 @@
         }
 
         public function getSuperUser($email, $password) {
-            $sql = "SELECT * FROM SuperUser WHERE mailSuperUser = '%s' AND mdpSuperUser = md5('%s') ";
+            $sql = "SELECT * FROM superuser WHERE mailsuperuser = '%s' AND mdpsuperuser = md5('%s') ";
 
             $sql = sprintf($sql, $email, $password);
 
