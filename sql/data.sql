@@ -43,30 +43,25 @@ insert into sport (nomSport,deficitcalorieplat) values
 ('Course à pied',400),
 ('Natation',400),
 ('Cyclisme',400),
-('Aérobic',400),
 ('Zumba',300),
-('Boxe',500),
-('Escalade en salle',500),
-('Tennis',300);
+('Escalade en salle',500);
 
 
 insert into objectif ( nomobjectif ) values 
 ('Augmenter son poids'),
 ('Réduire son poids');
 
-insert into regime (nomregime,idobjectif,poids1,poids2) values 
-('Regime Gagnepoids',1,1,10),
-('Programme Prise de Masse',1,10,20),
-('Regime Equilibre',2,1,10),
-('Programme Minceur Actif',2,10,20),
-('Regime Equilibre Vitalite',2,20,30);
+insert into regime (nomregime,idobjectif) values 
+('Regime Gagnepoids',1),
+('Programme Prise de Masse',1),
+('Regime Equilibre',2),
+('Programme Minceur Actif',2),
+('Regime Equilibre Vitalite',2);
 
-insert into dureeprixregime (dureeregime,prixregime,idregime) values 
-(7,500000,1),
-(7,1000000,2),
-(7,500000,3),
-(7,1000000,4),
-(7,1500000,5);
+insert into dureeprixregime (intervalle1,intervalle2,prixregime) values 
+(1,9,500000),
+(10,19,500000),
+(20,29,500000);
 
 
 insert into detailregime (idregime,idplat,idsport) values
@@ -77,8 +72,8 @@ insert into detailregime (idregime,idplat,idsport) values
 (2,12,5),
 (2,13,1),
 (3,14,2),
-(3,1,6),
-(3,2,7),
+(3,1,2),
+(3,2,1),
 (4,3,1),
 (4,1,2),
 (4,2,3),
