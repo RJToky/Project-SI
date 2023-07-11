@@ -22,6 +22,7 @@ class C_User extends CI_Controller {
             $statue = array('response' => 'success',
                             'message' => $data['user']);
             $this->session->set_userdata('id',$data['user']['iduser']);
+            $this->session->set_userdata('prenom',$data['user']['prenomuser']);
         }
 
         echo json_encode($statue);
@@ -41,6 +42,8 @@ class C_User extends CI_Controller {
             $this->user->insertUser($nom, $prenom, $genre, $dtn, $mail, $mdp);
             $statue = array('response' => 'success',
                             'message' => 'Insertion avec success');
+                            
+            redirect(base_url("C_User/completion"));
         } else if ($mdp != $confirm) {
             $statue = array('response' => 'error',
                             'message' => 'Veuillez confirmer votre mot de passe');
@@ -104,5 +107,25 @@ class C_User extends CI_Controller {
     
     public function objectif() {
         $this->load->view("pages/front_office/objectif");
+    }
+
+    public function insertAchat($idregime) {
+        $idUser = $this->session->userdata("id");
+        
+        $idobjectif = $this->obj->getIdObjectifByUser($idUser);
+		$kiloUser = $this->user->getDetailUser($idUser)["poidsuser"];
+        
+        $solde = $this->user->getSolde($idUser);
+		$prix = $this->reg->dureeByIdRegime($idobjectif, $kiloUser, $idregime)["prix"];
+
+        if($solde >= $prix) {
+            $this->user->updatePorteMonnaie($idUser, $solde - $prix);
+            $this->user->achatUser($idUser, $solde, $idregime);
+            $status = array("response" => "success", "message" => "Achat réussi");
+
+        } else {
+            $status = array("response" => "error", "message" => "Veuillez verifier votre solde " . $solde);
+        }
+        echo json_encode($status);
     }
 }

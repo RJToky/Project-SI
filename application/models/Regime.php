@@ -97,8 +97,9 @@
                 $prix = $this->getPrixRegime(ceil($duree));
                 
                 $regime = array(
+                    "idregime" => $row["idregime"],
                     "nomregime" => $row["nomregime"],
-                    "nomobjectif" => $row["nomobjectif"],
+                    "idobjectif" => $row["idobjectif"],
                     "duree" => ceil($duree),
                     "prix" => $prix["prixregime"]
                 );
@@ -107,6 +108,34 @@
             }
 
             return $result;
+        }
+
+        public function dureeByIdRegime($idObjectif, $kilo, $idregime) {
+            $result = array();
+
+            $sql = "SELECT * FROM v_diffplatsport WHERE idobjectif = %d and idregime = %d";
+
+            $sql = sprintf($sql, $idObjectif, $idregime);
+
+            $query = $this->db->query($sql);
+
+            foreach($query->result_array() as $row) {
+                $diff = abs(intval($row["diffplatsport"]));
+                $duree = $this->calorieAPerdreouAGagner($kilo)/$diff;
+                $prix = $this->getPrixRegime(ceil($duree));
+                
+                $regime = array(
+                    "idregime" => $row["idregime"],
+                    "nomregime" => $row["nomregime"],
+                    "idobjectif" => $row["idobjectif"],
+                    "duree" => ceil($duree),
+                    "prix" => $prix["prixregime"]
+                );
+
+                array_push($result, $regime);
+            }
+
+            return $result[0];
         }
 
         public function getPrixRegime($interv) {
@@ -136,12 +165,14 @@
 
             foreach($query->result_array() as $row) {
                 $plat = array(
-                    "plat" => $row["nomplat"],
+                    "nature" => "plat",
+                    "nom" => $row["nomplat"],
                     "apportcalorie" => $row["apportcalorieplat"]
                 );
 
                 $sport = array(
-                    "sport" => $row["nomsport"],
+                    "nature" => "sport",
+                    "nom" => $row["nomsport"],
                     "deficitcalorie" => $row["deficitcalorie"]
                 );
 
@@ -176,20 +207,6 @@
             $sql = sprintf($sql, $idPrixRegime);
 
             $this->db->query($sql);
-        }
-
-        public function getPrixRegime() {
-            $result = array();
-
-            $sql = "SELECT * FROM prixregime";
-
-            $query = $this->db->query($sql);
-
-            foreach($query->result_array() as $row) {
-                $result [] = $row;
-            }
-
-            return $result;
         }
 
     }

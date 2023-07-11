@@ -70,7 +70,7 @@
 
             $result = $query->row_array();
 
-            return $result;
+            return $result["nbuser"];
         }
 
         public function countUserByObjectif($idObjectif) {
@@ -82,7 +82,7 @@
 
             $result = $query->row_array();
 
-            return $result;
+            return $result["nbuser"];
         }
 
         public function initialisePorteMonnaie($idUser) {
@@ -101,7 +101,7 @@
             $this->db->query($sql);
         }
 
-        public function achatUser($idUser, $montant, $idregime, $confirmationachat) {
+        public function achatUser($idUser, $montant, $idregime, $confirmationachat = 1) {
             $sql = "INSERT INTO achatuser VALUES (default, %d, %g, %d, %d, NOW())";
 
             $sql = sprintf($sql, $idUser, $montant, $idregime, $confirmationachat);
@@ -116,14 +116,14 @@
 
             $result = $query->row_array();
 
-            return $result;
+            return $result["chiffreaffaire"];
             
         }
 
         public function statistiqueParMontant() {
             $result = array();
 
-            $sql = "SELECT montant, dateachat FROM achatuser";
+            $sql = "SELECT avg(montant), dateachat FROM achatuser GROUP BY dateachat ORDER BY dateachat ASC";
 
             $query = $this->db->query($sql);
 
@@ -171,6 +171,28 @@
 
                 array_push($result, $regime);
             }
+        public function getDetailUser($iduser) {
+            $sql = "SELECT * FROM detailuser WHERE iduser = %d";
+
+            $sql = sprintf($sql, $iduser);
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+
+            return $result;
+        }
+
+        public function getSolde($iduser) {
+            $sql = "SELECT * FROM portemonnaieuser WHERE iduser = %d";
+
+            $sql = sprintf($sql, $iduser);
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+
+            return $result["montant"];
         }
 
 
