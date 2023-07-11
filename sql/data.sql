@@ -143,6 +143,8 @@ insert into code (numerocode,montantcode) values
 
 insert into codeuser (idcode,iduser,validitecode) values 
 (15,1,1);
+insert into codeuser (idcode,iduser,validitecode) values 
+(14,2,0);
 
 insert into portemonnaieuser (iduser,montant) values 
 (1,550000);
