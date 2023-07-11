@@ -64,6 +64,7 @@ class C_User extends CI_Controller {
                             'message' => 'Vérifier vos données');
         } else {
             $this->user->insertDetailUser($idUser, $taille, $poids);
+            $this->user->initialisePorteMonnaie($idUser);
             $statue = array('response' => 'success',
                             'message' => 'Insérer avec success');
         }
@@ -87,6 +88,7 @@ class C_User extends CI_Controller {
         }
         echo json_encode($statue);
     }
+
 
     public function endSession(){
         $this->session->unset_userdata('id');        
