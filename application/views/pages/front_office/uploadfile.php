@@ -1,5 +1,5 @@
 <?php
-require('/assets/pdf/fpdf.php');
+require('pdf/fpdf.php');
 
 // Crée une nouvelle classe en étendant la classe FPDF
 class MonPDF extends FPDF {
