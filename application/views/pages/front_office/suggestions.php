@@ -14,7 +14,7 @@
 
   <main class="px-36 py-10 max-w-7xl mx-auto">
     <h1 class="mb-6 text-3xl font-semibold text-gray-600">Suggestions de régime</h1>
-    <?= var_dump($suggestions) ?>
+
     <div class="flex flex-wrap gap-10">
 
     <?php for($i = 0; $i < count($suggestions); $i++) { ?>
@@ -24,26 +24,12 @@
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
           <!-- Carousel wrapper -->
           <div class="relative h-48 overflow-hidden">
-            <!-- Item 1 -->
+            
+          <?php for($j = 0; $j < count($suggestions[$i]["listphoto"]); $j++) { ?>
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?php echo base_url("assets/img/bg-sakafo-login.jpg"); ?>" class="absolute block w-full top-0 left-0" alt="...">
+                <img src="<?php echo base_url("assets/img/" . $suggestions[$i]["listphoto"][$j]); ?>" class="absolute block w-full top-0 left-0" alt="...">
             </div>
-            <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?php echo base_url("assets/img/bg-sakafo-login.jpg"); ?>" class="absolute block w-full top-0 left-0" alt="...">
-            </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?php echo base_url("assets/img/bg-sakafo-login.jpg"); ?>" class="absolute block w-full top-0 left-0" alt="...">
-            </div>
-            <!-- Item 4 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?php echo base_url("assets/img/bg-sakafo-login.jpg"); ?>" class="absolute block w-full top-0 left-0" alt="...">
-            </div>
-            <!-- Item 5 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?php echo base_url("assets/img/bg-sakafo-login.jpg"); ?>" class="absolute block w-full top-0 left-0" alt="...">
-            </div>
+          <?php } ?>
          </div>
          <!-- Slider indicators -->
           <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">

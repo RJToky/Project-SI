@@ -82,8 +82,37 @@
             return $query->result_array()[0];
         }
 
+        public function allImg() {
+            $result = array();
+
+            $sql = "SELECT * FROM photosport UNION SELECT * FROM photoplat";
+
+            $sql = sprintf($sql);
+
+            $query = $this->db->query($sql);
+
+            foreach($query->result_array() as $row) {
+                $result [] = $row;
+            }
+
+            $output = array();
+            for($i = 0; $i < count($result); $i++) {
+                array_push($output, $result[$i]["photosport"]);
+            }
+
+            return $output;
+        }
+
+        public function getRandomIndices($arraySize, $numIndices) {
+            $indices = range(0, $arraySize - 1);
+            shuffle($indices);
+            return array_slice($indices, 0, $numIndices);
+        }
+
         public function dureeRegime($idObjectif, $kilo) {
             $result = array();
+
+            $allImg = $this->reg->allImg();
 
             $sql = "SELECT * FROM v_diffplatsport WHERE idobjectif = %d";
 
@@ -95,9 +124,17 @@
                 $diff = abs(intval($row["diffplatsport"]));
                 $duree = $this->calorieAPerdreouAGagner($kilo)/$diff;
                 $prix = $this->getPrixRegime(ceil($duree));
+
+                
+                $randomIndices = $this->reg->getRandomIndices(count($allImg), 5);
+                $randomImg = array();
+                for($i = 0; $i < count($randomIndices); $i++) {
+                    array_push($randomImg, $allImg[$randomIndices[$i]]);
+                }
                 
                 $regime = array(
                     "idregime" => $row["idregime"],
+                    "listphoto" => $randomImg,
                     "nomregime" => $row["nomregime"],
                     "idobjectif" => $row["idobjectif"],
                     "duree" => ceil($duree),
