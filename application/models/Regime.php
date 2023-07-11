@@ -167,14 +167,12 @@
                 $plat = array(
                     "nature" => "plat",
                     "nom" => $row["nomplat"],
-                    "photo" => $row["photoplat"],
                     "apportcalorie" => $row["apportcalorieplat"]
                 );
 
                 $sport = array(
                     "nature" => "sport",
                     "nom" => $row["nomsport"],
-                    "photo" => $row["photosport"],
                     "deficitcalorie" => $row["deficitcalorie"]
                 );
 
