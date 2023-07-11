@@ -8,13 +8,13 @@ join sport on sport.idsport = detailregime.idsport;
 
 
 create or replace view v_photoplat as 
-select photoplat.photoplat
+select photoplat.photoplat,v_platsportregime.idregime
 from photoplat 
 join v_platsportregime on v_platsportregime.idplat = photoplat.idplat;
 
 
 create or replace view v_photosport as 
-select photosport.photosport
+select photosport.photosport,v_platsportregime.idregime
 from photosport 
 join v_platsportregime on v_platsportregime.idsport = photosport.idsport;
 
@@ -28,4 +28,5 @@ select code.numerocode,code.montantcode,users.nomuser,users.prenomuser,codeuser.
 from codeuser 
 join code on code.idcode = codeuser.idcode
 join users on users.iduser = codeuser.iduser;
+
 
