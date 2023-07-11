@@ -55,10 +55,10 @@
             return $result;
         }
 
-        public function insertRegimePersonne($idUser, $idObjectif) {
-            $sql = "INSERT INTO regimepersonne VALUES (default, %d, %d)";
+        public function insertRegimePersonne($idUser, $idObjectif, $poidsvisee) {
+            $sql = "INSERT INTO regimepersonne VALUES (default, %d, %d, %d)";
   
-            $sql = sprintf($sql, $idUser, $idObjectif);
+            $sql = sprintf($sql, $idUser, $idObjectif, $poidsvisee);
   
             $this->db->query($sql);
         }
@@ -152,6 +152,18 @@
 
         public function getDetailUser($iduser) {
             $sql = "SELECT * FROM detailuser WHERE iduser = %d";
+
+            $sql = sprintf($sql, $iduser);
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+
+            return $result;
+        }
+
+        public function getRegimePersonne($iduser) {
+            $sql = "SELECT * FROM regimepersonne WHERE iduser = %d";
 
             $sql = sprintf($sql, $iduser);
 

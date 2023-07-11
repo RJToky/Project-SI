@@ -40,6 +40,9 @@ class C_User extends CI_Controller {
         
         if( ($genre == 1 || $genre == 2) && ($mdp == $confirm) ) {
             $this->user->insertUser($nom, $prenom, $genre, $dtn, $mail, $mdp);
+            $idUser = $this->user->getIdLastUser()["idlastuser"];
+
+            $this->user->initialisePorteMonnaie($idUser);
             $statue = array('response' => 'success',
                             'message' => 'Insertion avec success');
                             
@@ -60,38 +63,33 @@ class C_User extends CI_Controller {
         $idUser = $this->user->getIdLastUser()["idlastuser"];
         $taille = intval($this->input->post('taille'));
         $poids = intval($this->input->post('poids'));
+        $objectif = intval($this->input->post('objectif'));
 
-        
-        if(($taille == 0 || $poids == 0) || ($taille == 0 && $poids == 0)) {
+        if($objectif > $poids) {
+            $idobjectif = 1;
+        } else if ($objectif < $poids) {
+            $idobjectif = 2;
+        }
+
+        if($taille <= 0 || $poids <= 0 || $objectif <= 0) {
             $statue = array('response' => 'error',
                             'message' => 'Vérifier vos données');
         } else {
-            $this->user->insertDetailUser($idUser, $taille, $poids);
-            $this->user->initialisePorteMonnaie($idUser);
-            $statue = array('response' => 'success',
-                            'message' => 'Insérer avec success');
+            if($objectif == $poids) {
+                $statue = array('response' => 'error',
+                                'message' => 'Vérifier vos données');
+            } else {
+                $this->user->insertDetailUser($idUser, $taille, $poids);
+                $this->user->insertRegimePersonne($idUser, $idobjectif, $objectif);
+                
+                $statue = array('response' => 'success',
+                                'message' => 'Insérer avec success');
+            }
         }
            
         echo json_encode($statue);
 
     }
-
-    public function objectifUser($idobjectif) {
-        $idUser = $this->user->getIdLastUser()["idlastuser"];
-
-        if($idobjectif == 1 || $idobjectif == 2) {
-            $this->user->insertRegimePersonne($idUser, $idobjectif);
-            $statue = array('response' => 'success',
-                            'message' => 'Insérer avec success');
-            redirect(base_url("C_Home/index"));
-
-        } else {
-            $statue = array('response' => 'error',
-                            'message' => 'Vérifier vos données');
-        }
-        echo json_encode($statue);
-    }
-
 
     public function endSession(){
         $this->session->unset_userdata('id');        

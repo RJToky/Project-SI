@@ -14,9 +14,9 @@
 		<h2 class="text-[#39AEC0] text-5xl font-bold mb-8">Completion du profil</h2>
 		<form id="form-completion" class="mx-auto w-2/5" action="#" method="post">
 
-      <div class="rounded-lg p-5 bg-white shadow-xl flex flex-col">
+      <div class="rounded-lg p-5 bg-white shadow-xl grid grid-cols-1 gap-x-1 gap-y-6 sm:grid-cols-2">
 
-        <div class="p-4 flex flex-col gap-2">
+        <div class="p-4 flex flex-col gap-2 sm:col-span-2">
           <label class="text-gray-500 text-lg font-semibold">Entrer votre taille:</label>
           <input required name="taille" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="number" placeholder="180 mètres">
         </div>
@@ -24,6 +24,11 @@
         <div class="p-4 flex flex-col gap-2">
           <label class="text-gray-500 text-lg font-semibold">Entrer votre poids:</label>
           <input required name="poids" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="number" placeholder="50 Kg">
+        </div>
+
+				<div class="p-4 flex flex-col gap-2">
+          <label class="text-gray-500 text-lg font-semibold">Objectif:</label>
+          <input required name="objectif" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="number" placeholder="55 Kg">
         </div>
 
         <div class="p-4 sm:col-span-2">
@@ -73,7 +78,7 @@
 					success: (response) => {
 						let res = JSON.parse(response);
 						if(res.response === "success") {
-							window.location.href = "<?= base_url("C_User/objectif") ?>";
+							window.location.href = "<?= base_url("C_Home/index") ?>";
 						} else if (res.response === "error") {
 							$("#message-error").text(res.message);
 							$("#toast-danger").removeClass("hidden");
