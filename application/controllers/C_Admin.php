@@ -13,6 +13,16 @@ class C_Admin extends CI_Controller {
 		$this->load->view('pages/back_office/regime', $data);
 	}
 
+	public function modif_regime($idregime) {
+		$data["page"] = "Régime";
+		$this->load->view('pages/back_office/modif_regime', $data);
+	}
+
+	public function ajout_regime() {
+		$data["page"] = "Régime";
+		$this->load->view('pages/back_office/ajout_regime', $data);
+	}
+
 	public function activite_sportive() {
 		$data["page"] = "Activité sportive";
 		$this->load->view('pages/back_office/activite_sportive', $data);
