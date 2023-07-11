@@ -17,6 +17,7 @@
 
     <div class="flex flex-wrap gap-10">
 
+    <?php for($i = 0; $i < count($suggestions); $i++) { ?>
     <!-- Item container -->
       <div id="item" class="w-[300px] shadow-2xl h-fit rounded-md overflow-hidden">
 
@@ -73,12 +74,12 @@
 
         <div class="flex flex-col">
           <div class="grid grid-cols-3">
-            <span class="text-gray-600 py-4 text-center border-r-2 border-r-slate-200 font-semibold">+5 poids</span>
-            <span class="text-gray-600 py-4 text-center border-r-2 border-r-slate-200 font-semibold">7 jours</span>
-            <span class="text-gray-600 py-4 text-center font-semibold">500000 Ar</span>
+            <span class="text-gray-600 py-4 text-center border-r-2 border-r-slate-200 font-semibold"><?php if($suggestions[$i]["idobjectif"] == 1) { echo "Poids +"; } else { echo "Poids -"; } ?></span>
+            <span class="text-gray-600 py-4 text-center border-r-2 border-r-slate-200 font-semibold"><?= $suggestions[$i]["duree"] ?> jours</span>
+            <span class="text-gray-600 py-4 text-center font-semibold"><?= $suggestions[$i]["prix"]; ?> Ar</span>
           </div>
           <div class="flex justify-center">
-            <a href="<?= base_url("C_Home/detail_regime/1"); ?>" class="bg-[#39AEC0] hover:bg-[#40c4d8] transition-all duration-300 w-full px-4 py-4 text-center font-semibold text-white text-md focus:outline-none">
+            <a href="<?= base_url("C_Home/detail_regime/" . $suggestions[$i]["idregime"]); ?>" class="bg-[#39AEC0] hover:bg-[#40c4d8] transition-all duration-300 w-full px-4 py-4 text-center font-semibold text-white text-md focus:outline-none">
               Voir détail &rarr;
             </a>
           </div>
@@ -86,6 +87,7 @@
 
       </div>
     <!-- End Item container -->
+    <?php } ?>
 
     </div>
   </main>

@@ -18,6 +18,18 @@
             
         }
 
+        public function getIdObjectifByUser($iduser) {
+            $sql = "SELECT * FROM regimepersonne WHERE iduser = %d";
+
+            $sql = sprintf($sql, $iduser);
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+
+            return $result["idobjectif"];
+        }
+
     }
 
 ?>

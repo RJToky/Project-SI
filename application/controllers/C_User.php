@@ -22,6 +22,7 @@ class C_User extends CI_Controller {
             $statue = array('response' => 'success',
                             'message' => $data['user']);
             $this->session->set_userdata('id',$data['user']['iduser']);
+            $this->session->set_userdata('prenom',$data['user']['prenomuser']);
         }
 
         echo json_encode($statue);
