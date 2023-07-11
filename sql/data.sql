@@ -162,10 +162,3 @@ insert into achatuser (iduser,montant,idregime,confirmationachat,dateachat) valu
 (2,600000,1,0,'2023-07-11'),
 (3,700000,1,0,'2023-07-11'),
 (3,500000,2,0,'2023-07-11');
-
-insert into detailuser (iduser,tailleuser,poidsuser,dateupdatedetailuser) values 
-(1,160,50,'2023-07-11'),
-(2,170,84,'2023-07-11'),
-(3,165,83,'2023-07-11'),
-(4,180,84,'2023-07-11'),
-(5,175,62,'2023-07-11');
