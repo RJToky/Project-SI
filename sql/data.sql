@@ -39,29 +39,29 @@ insert into plat (nomplat,apportcalorieplat) values
 ('Pancakes avec sirop d érable',300),
 ('tranches de pain complet avec beurre de cacahuète et tranches de pomme',200);
 
-insert into photoplat (photoplat) values 
-('Salade de poulet.jpg'),
-('Saumon grille.jpg'),
-('Pates avec sauce.jpg'),
-('Wrap avocat.jpg'),
-('Steack boeuf.jpg'),
-('Omelette legumes.jpg'),
-('Riz blanc poulet.jpg'),
-('Chili vegan.jpg'),
-('Salade grecque.jpg'),
-('Buritto boeuf.jpg'),
-('Cheeseburger.jpg'),
-('Pizza.jpg'),
-('Poulet frit.jpg'),
-('Porc sauce barbecue.jpg'),
-('Gratin.jpg'),
-('Flocons d avoine.jpg'),
-('Yaourt.jpg'),
-('Oeuf brouille.jpg'),
-('Smoothie.jpg'),
-('Barres cereales.jpg'),
-('Pancakes.jpg'),
-('Pain perdu.jpg');
+insert into photoplat (idplat,photoplat) values 
+(1,'Salade de poulet.jpg'),
+(2,'Saumon grille.jpg'),
+(3,'Pates avec sauce.jpg'),
+(4,'Wrap avocat.jpg'),
+(5,'Steack boeuf.jpg'),
+(6,'Omelette legumes.jpg'),
+(7,'Riz blanc poulet.jpg'),
+(8,'Chili vegan.jpg'),
+(9,'Salade grecque.jpg'),
+(10,'Buritto boeuf.jpg'),
+(11,'Cheeseburger.jpg'),
+(12,'Pizza.jpg'),
+(13,'Poulet frit.jpg'),
+(14,'Porc sauce barbecue.jpg'),
+(15,'Gratin.jpg'),
+(16,'Flocons d avoine.jpg'),
+(17,'Yaourt.jpg'),
+(18,'Oeuf brouille.jpg'),
+(19,'Smoothie.jpg'),
+(20,'Barres cereales.jpg'),
+(21,'Pancakes.jpg'),
+(22,'Pain perdu.jpg');
 
 insert into sport (nomSport,deficitcalorie) values 
 ('Course à pied',400),
@@ -70,13 +70,13 @@ insert into sport (nomSport,deficitcalorie) values
 ('Zumba',300),
 ('Escalade en salle',500);
 
-insert into photosport (photosport) values 
-('Running.jpg'),
-('Natation.jpg'),
-('Cyclisme.jpg'),
-('Zumba.jpg'),
-('Zumba.jpg'),
-('Escalade en salle.jpg');
+insert into photosport (idsport,photosport) values 
+(1,'Running.jpg'),
+(2,'Natation.jpg'),
+(3,'Cyclisme.jpg'),
+(4,'Zumba.jpg'),
+(5,'Zumba.jpg'),
+(6,'Escalade en salle.jpg');
 
 
 insert into objectif ( nomobjectif ) values 
@@ -126,7 +126,7 @@ insert into detailregime (idregime,idplat,idsport) values
 
 insert into kgcalorie values (1,2000);
 
-insert into regimepersonne (iduser,idobjectif,poidsvise) values 
+insert into regimepersonne (iduser,idobjectif,poidsvisee) values 
 (1,1,2),
 (2,1,7),
 (3,2,4),
