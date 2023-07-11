@@ -101,6 +101,25 @@
             $this->db->query($sql);
         }
 
+        public function achatUser($idUser, $montant, $idregime, $confirmationachat) {
+            $sql = "INSERT INTO achatuser VALUES (default, %d, %g, %d, %d, NOW())";
+
+            $sql = sprintf($sql, $idUser, $montant, $idregime, $confirmationachat);
+
+            $this->db->query($sql);
+        }
+
+        public function chiffreAffaire() {
+            $sql = "SELECT SUM(montant) as chiffreaffaire FROM achatuser";
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+
+            return $result;
+            
+        }
+
 
     }
 
