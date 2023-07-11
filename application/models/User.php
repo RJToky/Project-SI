@@ -101,7 +101,7 @@
             $this->db->query($sql);
         }
 
-        public function achatUser($idUser, $montant, $idregime, $confirmationachat) {
+        public function achatUser($idUser, $montant, $idregime, $confirmationachat = 1) {
             $sql = "INSERT INTO achatuser VALUES (default, %d, %g, %d, %d, NOW())";
 
             $sql = sprintf($sql, $idUser, $montant, $idregime, $confirmationachat);
@@ -160,6 +160,18 @@
             $result = $query->row_array();
 
             return $result;
+        }
+
+        public function getSolde($iduser) {
+            $sql = "SELECT * FROM portemonnaieuser WHERE iduser = %d";
+
+            $sql = sprintf($sql, $iduser);
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+
+            return $result["montant"];
         }
 
 

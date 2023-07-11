@@ -18,7 +18,7 @@
       <div class="flex gap-4">
 
         <div class="text-gray-400 text-3xl shadow p-5 rounded">
-          100000 Ar
+          <?= $solde ?> Ar
         </div>
 
         <form id="formDepot" class="shadow p-5 flex gap-4 rounded" action="#" method="post">

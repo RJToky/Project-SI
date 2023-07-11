@@ -108,4 +108,24 @@ class C_User extends CI_Controller {
     public function objectif() {
         $this->load->view("pages/front_office/objectif");
     }
+
+    public function insertAchat($idregime) {
+        $idUser = $this->session->userdata("id");
+        
+        $idobjectif = $this->obj->getIdObjectifByUser($idUser);
+		$kiloUser = $this->user->getDetailUser($idUser)["poidsuser"];
+        
+        $solde = $this->user->getSolde($idUser);
+		$prix = $this->reg->dureeByIdRegime($idobjectif, $kiloUser, $idregime)["prix"];
+
+        if($solde >= $prix) {
+            $this->user->updatePorteMonnaie($idUser, $solde - $prix);
+            $this->user->achatUser($idUser, $solde, $idregime);
+            $status = array("response" => "success", "message" => "Achat réussi");
+
+        } else {
+            $status = array("response" => "error", "message" => "Veuillez verifier votre solde " . $solde);
+        }
+        echo json_encode($status);
+    }
 }

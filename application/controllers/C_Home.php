@@ -24,6 +24,9 @@ class C_Home extends CI_Controller {
 	}
 
 	public function wallet() {
-		$this->load->view('pages/front_office/wallet');
+		$idUser = $this->session->userdata("id");
+		$data["solde"] = $this->user->getSolde($idUser);
+		
+		$this->load->view('pages/front_office/wallet', $data);
 	}
 }
