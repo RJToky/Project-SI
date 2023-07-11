@@ -14,7 +14,7 @@
 
   <main class="px-36 py-10 max-w-7xl mx-auto">
     <h1 class="mb-6 text-3xl font-semibold text-gray-600">Suggestions de régime</h1>
-
+    <?= var_dump($suggestions) ?>
     <div class="flex flex-wrap gap-10">
 
     <?php for($i = 0; $i < count($suggestions); $i++) { ?>

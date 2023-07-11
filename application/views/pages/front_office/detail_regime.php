@@ -15,6 +15,7 @@
   <main class="px-36 py-10 max-w-7xl mx-auto">
     <h1 class="mb-6 text-3xl font-semibold text-gray-600">Detail régime</h1>
 
+ 
     <div class="w-full flex gap-4">
 
       <!-- Left -->
