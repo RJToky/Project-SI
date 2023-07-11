@@ -75,8 +75,7 @@ insert into photosport (idsport,photosport) values
 (2,'Natation.jpg'),
 (3,'Cyclisme.jpg'),
 (4,'Zumba.jpg'),
-(5,'Zumba.jpg'),
-(6,'Escalade en salle.jpg');
+(5,'Escalade en salle.jpg');
 
 
 insert into objectif ( nomobjectif ) values 
@@ -165,13 +164,8 @@ insert into achatuser (iduser,montant,idregime,confirmationachat,dateachat) valu
 (3,500000,2,0,'2023-07-11');
 
 insert into detailuser (iduser,tailleuser,poidsuser,dateupdatedetailuser) values 
-(1,160,46,'2023-07-08'),
-(2,170,70,'2023-07-09'),
 (1,160,50,'2023-07-11'),
 (2,170,84,'2023-07-11'),
 (3,165,83,'2023-07-11'),
 (4,180,84,'2023-07-11'),
-(5,175,62,'2023-07-11'),
-(3,165,100,'2023-07-08'),
-(4,180,100,'2023-07-09'),
-(5,175,72,'2023-07-09');
+(5,175,62,'2023-07-11');
