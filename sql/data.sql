@@ -86,8 +86,11 @@ insert into objectif ( nomobjectif ) values
 insert into regime (nomregime,idobjectif) values 
 ('Regime Gagnepoids',1),
 ('Programme Prise de Masse',1),
+('Programme kilosplus',1),
+('Régime botabota',1),
 ('Regime Equilibre',2),
 ('Programme Minceur Actif',2),
+('Regime mahia',2),
 ('Regime Equilibre Vitalite',2);
 
 insert into prixregime (intervalle1,intervalle2,prixregime) values 
@@ -111,9 +114,15 @@ insert into detailregime (idregime,idplat,idsport) values
 (4,3,1),
 (4,1,2),
 (4,2,3),
-(5,3,4),
-(5,4,5),
-(5,5,2);
+(5,16,4),
+(5,17,5),
+(5,18,2),
+(6,19,1),
+(6,20,2),
+(6,21,3),
+(7,22,4),
+(7,1,5),
+(7,2,2);
 
 insert into kgcalorie values (1,2000);
 
@@ -150,7 +159,10 @@ insert into portemonnaieuser (iduser,montant) values
 (1,550000);
 
 insert into achatuser (iduser,montant,idregime,confirmationachat,dateachat) values 
-(1,40000,1,0,'2023-07-11');
+(1,40000,1,0,'2023-07-11'),
+(2,600000,1,0,'2023-07-11'),
+(3,700000,1,0,'2023-07-11'),
+(3,500000,2,0,'2023-07-11');
 
 insert into detailuser (iduser,tailleuser,poidsuser,dateupdatedetailuser) values 
 (1,160,46,'2023-07-08'),
