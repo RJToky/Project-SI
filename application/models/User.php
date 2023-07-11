@@ -202,18 +202,6 @@
             return $result;
         }
 
-        public function getRegimePersonne($iduser) {
-            $sql = "SELECT * FROM regimepersonne WHERE iduser = %d";
-
-            $sql = sprintf($sql, $iduser);
-
-            $query = $this->db->query($sql);
-
-            $result = $query->row_array();
-
-            return $result;
-        }
-
         public function getSolde($iduser) {
             $sql = "SELECT * FROM portemonnaieuser WHERE iduser = %d";
 
