@@ -1313,6 +1313,10 @@ input:checked + .toggle-bg {
   height: calc(100% - 1rem);
 }
 
+.h-52 {
+  height: 13rem;
+}
+
 .max-h-full {
   max-height: 100%;
 }
@@ -1964,6 +1968,10 @@ input:checked + .toggle-bg {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-light {
+  font-weight: 300;
 }
 
 .uppercase {
