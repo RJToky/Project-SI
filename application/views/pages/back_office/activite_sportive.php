@@ -13,9 +13,9 @@
   <?php $this->load->view("partials/back_office/nav"); ?>
 
   <main class="mx-6 w-5/6">
+
     <?php $this->load->view("partials/back_office/header"); ?>
 
-    <?php $this->load->view("partials/back_office/accueil"); ?>
     
   </main>
 

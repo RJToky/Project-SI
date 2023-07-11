@@ -5,7 +5,8 @@
       <paths name="asiorezim">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="http://ftp-asiorezim.alwaysdata.net" local="$PROJECT_DIR$" web="/www" />
+            <mapping local="" />
           </mappings>
         </serverdata>
       </paths>

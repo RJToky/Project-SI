@@ -4,7 +4,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class C_Admin extends CI_Controller {
 	
 	public function index() {
-		$this->load->view('pages/back_office/index');
+		$data["page"] = "Accueil";
+		$this->load->view('pages/back_office/accueil', $data);
+	}
+
+	public function regime() {
+		$data["page"] = "Régime";
+		$this->load->view('pages/back_office/regime', $data);
+	}
+
+	public function modif_regime($idregime) {
+		$data["page"] = "Régime";
+		$this->load->view('pages/back_office/modif_regime', $data);
+	}
+
+	public function ajout_regime() {
+		$data["page"] = "Régime";
+		$this->load->view('pages/back_office/ajout_regime', $data);
+	}
+
+	public function activite_sportive() {
+		$data["page"] = "Activité sportive";
+		$this->load->view('pages/back_office/activite_sportive', $data);
+	}
+
+	public function code() {
+		$data["page"] = "Code porte monnaie";
+		$this->load->view('pages/back_office/code', $data);
 	}
 
 	public function loginSuperUser() {
