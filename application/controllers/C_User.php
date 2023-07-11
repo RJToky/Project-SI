@@ -42,6 +42,9 @@ class C_User extends CI_Controller {
             $this->user->insertUser($nom, $prenom, $genre, $dtn, $mail, $mdp);
             $idUser = $this->user->getIdLastUser()["idlastuser"];
 
+            $this->session->set_userdata('id',$idUser);
+            $this->session->set_userdata('prenom',$prenom);
+
             $this->user->initialisePorteMonnaie($idUser);
             $statue = array('response' => 'success',
                             'message' => 'Insertion avec success');
