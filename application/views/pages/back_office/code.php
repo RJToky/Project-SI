@@ -13,7 +13,6 @@
   <?php $this->load->view("partials/back_office/nav"); ?>
 
   <main class="mx-6 w-5/6">
-
     <?php $this->load->view("partials/back_office/header"); ?>
 
     <div class="shadow-md rounded-md bg-white p-6 w-full mt-4">
@@ -37,22 +36,26 @@
                 </tr>
               </thead>
               <tbody>
+                <?php for($i = 0; $i < count($list); $i++) { ?>
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        1
+                        <?= $list[$i]["prenomuser"] ?>
                     </th>
                     <td class="px-6 py-4">
-                        Coucou
+                    <?= $list[$i]["numerocode"] ?>
+
                     </td>
                     <td class="px-6 py-4">
-                        Hello
+                    <?= $list[$i]["montantcode"] ?>
+
                     </td>
                     <td class="px-6 py-4">
-                      <a href="<?= base_url("C_Admin/valider/") ?>" id="btn-update" class="hover:bg-[#40c4d8] bg-[#39AEC0] transition-all duration-300 px-4 py-2 text-center font-semibold text-white focus:outline-none">
+                      <a href="<?= base_url('C_Admin/validerCode/' . $list[$i]['idcode'] . "/" . $list[$i]['iduser'] . "/" . $list[$i]['montantcode'] ) ?>" id="btn-update" class="hover:bg-[#40c4d8] bg-[#39AEC0] transition-all duration-300 px-4 py-2 text-center font-semibold text-white focus:outline-none">
                         Valider
                       </a>
                     </td>
                 </tr>
+                <?php } ?>
               </tbody>
           </table>
       </div>

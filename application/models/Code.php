@@ -35,11 +35,19 @@
             $this->db->query($sql);
         }
 
+        public function insertCodeUser($idUser, $idCode) {
+            $sql = "INSERT INTO codeuser VALUES (default, %d, %d)";
+
+            $sql = sprintf($sql, $idUser, $idCode);
+
+            $this->db->query($sql);
+        }
+
         //statu = 1
-        public function getAllCodeEnAttente($statu) {
+        public function getAllCodeEnAttente($statu = 1) {
             $result = array();
 
-            $sql = "SELECT * FROM code WHERE statu = %d";
+            $sql = "SELECT code.idcode, users.iduser, users.prenomuser, code.numerocode, code.montantcode FROM codeuser JOIN code ON code.idcode = codeuser.idcode JOIN users ON users.iduser = codeuser.iduser WHERE code.statu = %d";
 
             $sql = sprintf($sql, $statu);
 

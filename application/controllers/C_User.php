@@ -153,4 +153,20 @@ class C_User extends CI_Controller {
     public function objectif() {
         $this->load->view("pages/front_office/objectif");
     }
+
+    public function insertCode() {
+        $idUser = $this->session->userdata("id");
+        $numerocode = $this->input->post("code");
+        $code = $this->code->getCode($numerocode);
+
+        if($code["statu"] == 0 || $code["statu"] == 1) {
+            $status = array("response" => "error", "message" => "Code déjà utilisé");
+        } else {
+            $status = array("response" => "success", "message" => "Validation en attente");
+
+            $this->code->updateCode($code["idcode"], 1);
+            $this->code->insertCodeUser($idUser, $code["idcode"]);
+        }
+        echo json_encode($status);
+    }
 }

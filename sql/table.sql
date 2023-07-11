@@ -122,3 +122,11 @@ create table achatuser (
     foreign key (iduser) references users (iduser),
     foreign key (idregime) references regime (idregime)
 );
+
+create table codeuser(
+    idcodeuser serial primary key,
+    iduser int,
+    idcode int,
+    foreign key (iduser) references users (iduser),
+    foreign key (idcode) references code (idcode)
+);

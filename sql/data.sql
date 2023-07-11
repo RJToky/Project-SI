@@ -149,11 +149,6 @@ insert into code (numerocode,montantcode, statu) values
 ('NOP012',95000, 2),
 ('QRS345',550000, 2);
 
-insert into codeuser (idcode,iduser,validitecode) values 
-(15,1,1);
-insert into codeuser (idcode,iduser,validitecode) values 
-(14,2,0);
-
 insert into portemonnaieuser (iduser,montant) values 
 (1,550000);
 

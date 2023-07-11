@@ -44,16 +44,8 @@ class C_Admin extends CI_Controller {
 
 	public function code() {
 		$data["page"] = "Code porte monnaie";
+		$data["list"] = $this->code->getAllCodeEnAttente(1);
 		$this->load->view('pages/back_office/code', $data);
-		$data = array();
-
-		$nbUser = $this->user->countUser();
-		$nbUserBota = $this->user->countUserByObjectif(1);
-		$nbUserMahia = $this->user->countUserByObjectif(2);
-
-		$data["nbuser"] = $nbUser;
-		$data["nbuserbota"] = $nbUserBota;
-		$data["nbusermahia"] = $nbUserMahia;
 
 		// var_dump($data);
 					
@@ -85,5 +77,12 @@ class C_Admin extends CI_Controller {
 
 	public function deconnection() {
 		redirect(base_url("C_Index/login_user"));
+	}
+
+	public function validerCode($idcode, $iduser, $montant) {
+		$this->code->updateCode($idcode, 0);
+		$soldeActuel = $this->user->getSolde($iduser);
+		$this->user->updatePorteMonnaie($iduser, $montant + $soldeActuel);
+		redirect(base_url("C_Admin/code"));
 	}
 }
