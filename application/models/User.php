@@ -134,7 +134,7 @@
         public function statistiqueParMontant() {
             $result = array();
 
-            $sql = "SELECT avg(montant), dateachat FROM achatuser GROUP BY dateachat ORDER BY dateachat ASC";
+            $sql = "SELECT dateachat, avg(montant) as moyenne FROM achatuser GROUP BY dateachat ORDER BY dateachat ASC";
 
             $query = $this->db->query($sql);
 
@@ -149,7 +149,7 @@
         public function statistiqueParPoids() {
             $result = array();
 
-            $sql = "SELECT avg(poidsuser) as moyenne, dateupdatedetailuser FROM detailuser GROUP BY dateupdatedetailuser ORDER BY dateupdatedetailuser ASC";
+            $sql = "SELECT dateupdatedetailuser, avg(poidsuser) as moyenne FROM detailuser GROUP BY dateupdatedetailuser ORDER BY dateupdatedetailuser ASC";
 
             $query = $this->db->query($sql);
 

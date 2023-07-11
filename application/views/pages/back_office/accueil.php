@@ -52,53 +52,64 @@
 
   </main>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
-  const graphe1 = document.getElementById("graphe-1").getContext('2d');
-  const graphe2 = document.getElementById("graphe-2").getContext('2d');
+  window.addEventListener("load", () => {
+      $(document).ready(() => {
+      $.ajax({
+        method: "GET",
+        url: "<?= base_url("C_Admin/graphe") ?>",
+        data: null,
+        processData: false,
+        contentType: false,
+        success: (response) => {
+          let res = JSON.parse(response);
+          console.log(JSON.stringify(res));
 
-  const data = [
-    {x:50, y:7},
-    {x:60, y:8},
-    {x:70, y:8},
-    {x:80, y:9},
-    {x:90, y:9},
-    {x:100, y:9},
-    {x:110, y:10},
-    {x:120, y:11},
-    {x:130, y:14},
-    {x:140, y:14},
-    {x:150, y:15}
-  ];
+          const graphe1 = document.getElementById("graphe-1").getContext('2d');
+          const graphe2 = document.getElementById("graphe-2").getContext('2d');
 
-  new Chart(graphe1, {
-    type: "scatter",
-    data: {
-    datasets: [{
-      pointRadius: 4,
-      pointBackgroundColor: "#111622",
-      data: data
-    }]
-    },
+          const xValues = [50,60,70,80,90,100,110,120,130,140,150];
+
+          new Chart(graphe1, {
+            type: "line",
+            data: {
+              labels: xValues,
+              datasets: [{
+                data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+                borderColor: "#111622",
+                fill: false
+              },{
+                data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+                borderColor: "#39AEC0",
+                fill: false
+              }]
+            },
+          });
+
+          new Chart(graphe2, {
+            type: "line",
+            data: {
+              labels: xValues,
+              datasets: [{
+                data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+                borderColor: "#111622",
+                fill: false
+              },{
+                data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+                borderColor: "#39AEC0",
+                fill: false
+              }]
+            },
+          });
+        },
+      });
+    });
   });
-
-  const xValues = [50,60,70,80,90,100,110,120,130,140,150];
-
-  new Chart(graphe2, {
-    type: "line",
-    data: {
-      labels: xValues,
-      datasets: [{
-        data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
-        borderColor: "#111622",
-        fill: false
-      },{
-        data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
-        borderColor: "#39AEC0",
-        fill: false
-      }]
-    },
-  });
+</script>
+<script>
+  
 
 </script>
 </body>

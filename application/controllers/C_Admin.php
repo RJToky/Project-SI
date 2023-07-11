@@ -15,6 +15,13 @@ class C_Admin extends CI_Controller {
 		$this->load->view('pages/back_office/accueil', $data);
 	}
 
+	public function graphe() {
+		$data["data1"] = $this->user->statistiqueParMontant();
+		$data["data2"] = $this->user->statistiqueParPoids();
+
+		echo json_encode($data);
+	}
+
 	public function regime() {
 		$data["page"] = "Régime";
 		$this->load->view('pages/back_office/regime', $data);
