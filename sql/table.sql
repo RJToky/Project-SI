@@ -85,6 +85,7 @@ create table regimepersonne (
     idregimepersonne serial primary key,
     iduser int,
     idobjectif int,
+    poidsvisee float,
     foreign key (iduser) references users (iduser),
     foreign key (idobjectif) references objectif (idobjectif)
 );

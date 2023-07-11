@@ -34,3 +34,14 @@ select achatuser.iduser, achatuser.montant, v_diffplatsport.idobjectif, v_diffpl
 from achatuser
 join v_diffplatsport on v_diffplatsport.idregime = achatuser.idregime
 LIMIT 10;
+
+create or replace view v_objectifpersonne as
+select detailuser.iduser, detailuser.tailleuser, detailuser.poidsuser , detailuser.dateupdatedetailuser, regimepersonne.idobjectif
+from detailuser 
+join regimepersonne on regimepersonne.iduser = detailuser.iduser;
+
+
+create or replace view v_poidsmoyen as
+select avg(poidsuser) as poidsmoyen, detailuser.dateupdatedetailuser , regimepersonne.idobjectif
+from detailuser 
+join regimepersonne on regimepersonne.iduser = detailuser.iduser group by detailuser.dateupdatedetailuser,regimepersonne.idobjectif order by detailuser.dateupdatedetailuser ASC;
