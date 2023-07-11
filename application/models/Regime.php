@@ -178,20 +178,6 @@
             $this->db->query($sql);
         }
 
-        public function getPrixRegime() {
-            $result = array();
-
-            $sql = "SELECT * FROM prixregime";
-
-            $query = $this->db->query($sql);
-
-            foreach($query->result_array() as $row) {
-                $result [] = $row;
-            }
-
-            return $result;
-        }
-
     }
 
 ?>

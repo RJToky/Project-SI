@@ -41,6 +41,8 @@ class C_User extends CI_Controller {
             $this->user->insertUser($nom, $prenom, $genre, $dtn, $mail, $mdp);
             $statue = array('response' => 'success',
                             'message' => 'Insertion avec success');
+                            
+            redirect(base_url("C_User/completion"));
         } else if ($mdp != $confirm) {
             $statue = array('response' => 'error',
                             'message' => 'Veuillez confirmer votre mot de passe');
