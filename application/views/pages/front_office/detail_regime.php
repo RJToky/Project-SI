@@ -28,7 +28,7 @@
 
             <?php for($i = 0; $i < count($detail); $i++) { ?>
               <?php if($detail[$i]["nature"] == "plat") { ?>
-              <div class="shadow-xl relative rounded-md h-36 w-52 overflow-hidden flex items-end pl-4 pb-4 bg-cover" style="background-image: url('<?php echo base_url(); ?>assets/img/bg-sakafo-login.jpg');">
+              <div class="shadow-xl relative rounded-md h-36 w-52 overflow-hidden flex items-end pl-4 pb-4 bg-cover" style="background-image: url('<?php echo base_url("assets/img/" . $detail[$i]["photo"]); ?>');">
                 <div class="absolute top-0 left-0 w-full h-full" style="background: linear-gradient( rgba(16, 16, 16, 0) 0%, rgba(16, 16, 16, 0.9) 100% );"></div>
                 <div class="flex flex-col">
                   <p class="relative z-10 text-sm text-gray-100 font-semibold"><?= $detail[$i]["nom"] ?></p>
@@ -50,7 +50,7 @@
 
           <?php for($i = 0; $i < count($detail); $i++) { ?>
               <?php if($detail[$i]["nature"] == "sport") { ?>
-              <div class="shadow-xl relative rounded-md h-36 w-52 overflow-hidden flex items-end pl-4 pb-4 bg-cover" style="background-image: url('<?php echo base_url(); ?>assets/img/bg-sakafo-login.jpg');">
+              <div class="shadow-xl relative rounded-md h-36 w-52 overflow-hidden flex items-end pl-4 pb-4 bg-cover" style="background-image: url('<?php echo base_url("assets/img/" . $detail[$i]["photo"]); ?>');">
                 <div class="absolute top-0 left-0 w-full h-full" style="background: linear-gradient( rgba(16, 16, 16, 0) 0%, rgba(16, 16, 16, 0.9) 100% );"></div>
                 <div class="flex flex-col">
                   <p class="relative z-10 text-sm text-gray-100 font-semibold"><?= $detail[$i]["nom"] ?></p>
