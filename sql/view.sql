@@ -11,12 +11,14 @@ create or replace view v_photoplat as
 select photoplat.photoplat,v_platsportregime.idregime
 from photoplat 
 join v_platsportregime on v_platsportregime.idplat = photoplat.idplat;
+join plat on plat.idplat = photoplat.idplat;
 
 
 create or replace view v_photosport as 
 select photosport.photosport,v_platsportregime.idregime
 from photosport 
 join v_platsportregime on v_platsportregime.idsport = photosport.idsport;
+join sport on sport.idsport = photosport.idsport;
 
 
 create or replace view v_diffplatsport as
