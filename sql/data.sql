@@ -117,12 +117,12 @@ insert into detailregime (idregime,idplat,idsport) values
 
 insert into kgcalorie values (1,2000);
 
-insert into regimepersonne (iduser,idobjectif) values 
-(1,1),
-(2,1),
-(3,2),
-(4,2),
-(5,2);
+insert into regimepersonne (iduser,idobjectif,poidsvise) values 
+(1,1,2),
+(2,1,7),
+(3,2,4),
+(4,2,10),
+(5,2,8);
 
 insert into code (numerocode,montantcode) values
 ('ABC123',500000),
@@ -151,3 +151,15 @@ insert into portemonnaieuser (iduser,montant) values
 
 insert into achatuser (iduser,montant,idregime,confirmationachat,dateachat) values 
 (1,40000,1,0,'2023-07-11');
+
+insert into detailuser (iduser,tailleuser,poidsuser,dateupdatedetailuser) values 
+(1,160,46,'2023-07-08'),
+(2,170,70,'2023-07-09'),
+(1,160,50,'2023-07-11'),
+(2,170,84,'2023-07-11'),
+(3,165,83,'2023-07-11'),
+(4,180,84,'2023-07-11'),
+(5,175,62,'2023-07-11'),
+(3,165,100,'2023-07-08'),
+(4,180,100,'2023-07-09'),
+(5,175,72,'2023-07-09');
