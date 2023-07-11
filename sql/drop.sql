@@ -1,7 +1,17 @@
+drop table users cascade;
+drop table superuser cascade;
+drop table detailuser cascade;
+drop table plat cascade;
+drop table photoplat cascade;
+drop table sport cascade;
+drop table photosport cascade;
+drop table objectif cascade;
 drop table regime cascade;
-
-drop table dureeprixregime cascade;
-
+drop table prixregime cascade;
+drop table detailregime cascade;
+drop table regimepersonne cascade;
+drop table kgcalorie cascade;
 drop table code cascade;
-
+drop table codeuser cascade;
 drop table portemonnaieuser cascade;
+drop table achatuser cascade;

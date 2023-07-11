@@ -161,7 +161,7 @@
 
         }
 
-        public function dernierTransaction($idUser, $idObjectif, $kilo) {
+        public function dernierTransaction($idUser, $kilo) {
             $result = array();
 
             $sql = "SELECT * FROM v_derniertransaction WHERE iduser = %d";
@@ -212,6 +212,31 @@
             $result = $query->row_array();
 
             return $result["montant"];
+        }
+
+        public function getPoids($iduser) {
+            $sql = "SELECT poidsuser FROM detailuser WHERE iduser = %d";
+
+            $sql = sprintf($sql, $iduser);
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+
+            return $result["poidsuser"];
+        }
+
+        
+        public function getPoidsVisee($iduser) {
+            $sql = "SELECT poidsvisee FROM regimepersonne WHERE iduser = %d";
+
+            $sql = sprintf($sql, $iduser);
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+
+            return $result["poidsvisee"];
         }
 
 

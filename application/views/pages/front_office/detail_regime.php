@@ -159,9 +159,13 @@
 				});
 			});
 
-			$("#button-close").click(() => {
-				$("#toast-danger").addClass("hidden");
-			});
+      const allBtnClose = document.querySelectorAll("#button-close");
+      allBtnClose.forEach((item) => {
+          item.addEventListener("click", () => {
+          $("#toast-success").addClass("hidden");
+          $("#toast-danger").addClass("hidden");
+        });
+      });
 		});
 	</script>
 </body>

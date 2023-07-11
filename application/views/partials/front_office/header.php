@@ -6,6 +6,6 @@
     <a href="#" class="text-gray-500 font-medium hover:text-[#39AEC0]">Contact</a>
   </nav>
   <a href="#" id="profil" class="mr-4 px-5 py-2 bg-gray-100 rounded-full text-gray-600"><?= $this->session->userdata("prenom") ?></a>
-  <a href="<?= base_url("C_Admin/deconnection") ?>" class="bg-[#39AEC0] hover:bg-[#40c4d8] transition-all duration-300 text-white px-5 py-2">Déconnexion</a>
+  <a href="<?= base_url("C_Home/deconnection") ?>" class="bg-[#39AEC0] hover:bg-[#40c4d8] transition-all duration-300 text-white px-5 py-2">Déconnexion</a>
 </header>
 <div class="h-[64px] w-full"></div>

@@ -45,7 +45,7 @@
                         Nom régime
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Objet
+                        Objectif
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Durée
@@ -59,40 +59,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Papaye à la tantely
-                    </th>
-                    <td class="px-6 py-4">
-                        +5 poids
-                    </td>
-                    <td class="px-6 py-4">
-                        7 jours
-                    </td>
-                    <td class="px-6 py-4">
-                        12/12/2012
-                    </td>
-                    <td class="px-6 py-4">
-                        100000 Ar
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Papaye à la tantely
-                    </th>
-                    <td class="px-6 py-4">
-                        +5 poids
-                    </td>
-                    <td class="px-6 py-4">
-                        7 jours
-                    </td>
-                    <td class="px-6 py-4">
-                        12/12/2012
-                    </td>
-                    <td class="px-6 py-4">
-                        100000 Ar
-                    </td>
-                </tr>
+                <?php for($i = 0; $i < count($transactions); $i++) { ?>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <?= $transactions[$i]["nomregime"] ?>
+                        </th>
+                        <td class="px-6 py-4">
+                            <?php if($transactions[$i]["idobjectif"] == 1) { echo "Poids +"; } else { echo "Poids -"; } ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?= $transactions[$i]["duree"] ?> jours
+                        </td>
+                        <td class="px-6 py-4">
+                        <?= $transactions[$i]["dateachat"] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                        <?= $transactions[$i]["montant"] ?> Ar
+                        </td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
