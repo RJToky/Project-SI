@@ -35,6 +35,24 @@
             $this->db->query($sql);
         }
 
+        //statu = 1
+        public function getAllCodeEnAttente($statu) {
+            $result = array();
+
+            $sql = "SELECT * FROM code WHERE statu = %d";
+
+            $sql = sprintf($sql, $statu);
+
+            $query = $this->db->query($sql);
+
+            foreach($query->result_array() as $row) {
+                $result [] = $row;
+            }
+
+            return $result;
+        }
+
+
     }
 
 ?>
