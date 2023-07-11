@@ -39,29 +39,29 @@ insert into plat (nomplat,apportcalorieplat) values
 ('Pancakes avec sirop d érable',300),
 ('tranches de pain complet avec beurre de cacahuète et tranches de pomme',200);
 
-insert into photoplat (photoplat) values 
-('Salade de poulet.jpg'),
-('Saumon grille.jpg'),
-('Pates avec sauce.jpg'),
-('Wrap avocat.jpg'),
-('Steack boeuf.jpg'),
-('Omelette legumes.jpg'),
-('Riz blanc poulet.jpg'),
-('Chili vegan.jpg'),
-('Salade grecque.jpg'),
-('Buritto boeuf.jpg'),
-('Cheeseburger.jpg'),
-('Pizza.jpg'),
-('Poulet frit.jpg'),
-('Porc sauce barbecue.jpg'),
-('Gratin.jpg'),
-('Flocons d avoine.jpg'),
-('Yaourt.jpg'),
-('Oeuf brouille.jpg'),
-('Smoothie.jpg'),
-('Barres cereales.jpg'),
-('Pancakes.jpg'),
-('Pain perdu.jpg');
+insert into photoplat (idplat,photoplat) values 
+(1,'Salade de poulet.jpg'),
+(2,'Saumon grille.jpg'),
+(3,'Pates avec sauce.jpg'),
+(4,'Wrap avocat.jpg'),
+(5,'Steack boeuf.jpg'),
+(6,'Omelette legumes.jpg'),
+(7,'Riz blanc poulet.jpg'),
+(8,'Chili vegan.jpg'),
+(9,'Salade grecque.jpg'),
+(10,'Buritto boeuf.jpg'),
+(11,'Cheeseburger.jpg'),
+(12,'Pizza.jpg'),
+(13,'Poulet frit.jpg'),
+(14,'Porc sauce barbecue.jpg'),
+(15,'Gratin.jpg'),
+(16,'Flocons d avoine.jpg'),
+(17,'Yaourt.jpg'),
+(18,'Oeuf brouille.jpg'),
+(19,'Smoothie.jpg'),
+(20,'Barres cereales.jpg'),
+(21,'Pancakes.jpg'),
+(22,'Pain perdu.jpg');
 
 insert into sport (nomSport,deficitcalorie) values 
 ('Course à pied',400),
@@ -70,13 +70,13 @@ insert into sport (nomSport,deficitcalorie) values
 ('Zumba',300),
 ('Escalade en salle',500);
 
-insert into photosport (photosport) values 
-('Running.jpg'),
-('Natation.jpg'),
-('Cyclisme.jpg'),
-('Zumba.jpg'),
-('Zumba.jpg'),
-('Escalade en salle.jpg');
+insert into photosport (idsport,photosport) values 
+(1,'Running.jpg'),
+(2,'Natation.jpg'),
+(3,'Cyclisme.jpg'),
+(4,'Zumba.jpg'),
+(5,'Zumba.jpg'),
+(6,'Escalade en salle.jpg');
 
 
 insert into objectif ( nomobjectif ) values 
@@ -86,8 +86,11 @@ insert into objectif ( nomobjectif ) values
 insert into regime (nomregime,idobjectif) values 
 ('Regime Gagnepoids',1),
 ('Programme Prise de Masse',1),
+('Programme kilosplus',1),
+('Régime botabota',1),
 ('Regime Equilibre',2),
 ('Programme Minceur Actif',2),
+('Regime mahia',2),
 ('Regime Equilibre Vitalite',2);
 
 insert into prixregime (intervalle1,intervalle2,prixregime) values 
@@ -111,13 +114,19 @@ insert into detailregime (idregime,idplat,idsport) values
 (4,3,1),
 (4,1,2),
 (4,2,3),
-(5,3,4),
-(5,4,5),
-(5,5,2);
+(5,16,4),
+(5,17,5),
+(5,18,2),
+(6,19,1),
+(6,20,2),
+(6,21,3),
+(7,22,4),
+(7,1,5),
+(7,2,2);
 
 insert into kgcalorie values (1,2000);
 
-insert into regimepersonne (iduser,idobjectif,poidsvise) values 
+insert into regimepersonne (iduser,idobjectif,poidsvisee) values 
 (1,1,2),
 (2,1,7),
 (3,2,4),
@@ -150,7 +159,10 @@ insert into portemonnaieuser (iduser,montant) values
 (1,550000);
 
 insert into achatuser (iduser,montant,idregime,confirmationachat,dateachat) values 
-(1,40000,1,0,'2023-07-11');
+(1,40000,1,0,'2023-07-11'),
+(2,600000,1,0,'2023-07-11'),
+(3,700000,1,0,'2023-07-11'),
+(3,500000,2,0,'2023-07-11');
 
 insert into detailuser (iduser,tailleuser,poidsuser,dateupdatedetailuser) values 
 (1,160,46,'2023-07-08'),
