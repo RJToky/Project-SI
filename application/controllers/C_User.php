@@ -18,11 +18,18 @@ class C_User extends CI_Controller {
                             'message' => 'Aucun utilisateur correspondant');
         
         }
-        else{
-            $statue = array('response' => 'success',
-                            'message' => $data['user']);
+        else {
             $this->session->set_userdata('id',$data['user']['iduser']);
             $this->session->set_userdata('prenom',$data['user']['prenomuser']);
+
+            if($this->user->has_done_completion($data['user']['iduser'])) {
+                $statue = array(
+                    'response' => 'success',
+                    'message' => $data['user']
+                );
+            } else {
+                $statue = array('response' => 'redirect');
+            }
         }
 
         echo json_encode($statue);
@@ -61,7 +68,7 @@ class C_User extends CI_Controller {
     }
 
     public function detailsInscription() {
-        $idUser = $this->user->getIdLastUser()["idlastuser"];
+        $idUser = $this->session->userdata("id");
         $taille = intval($this->input->post('taille'));
         $poids = intval($this->input->post('poids'));
         $objectif = intval($this->input->post('objectif'));

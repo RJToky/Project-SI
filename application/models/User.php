@@ -239,6 +239,20 @@
             return $result["poidsvisee"];
         }
 
+        public function has_done_completion($idUser) {
+            $sql = "SELECT count(iduser) count FROM detailuser WHERE iduser = %d";
+
+            $sql = sprintf($sql, $idUser);
+
+            $query = $this->db->query($sql);
+
+            $result = $query->row_array();
+            if($result["count"] == 0) { return false; }
+
+            return true;
+            return $result["count"];
+        }
+
 
     }
 
