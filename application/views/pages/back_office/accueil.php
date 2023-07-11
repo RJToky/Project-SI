@@ -21,19 +21,19 @@
       <div id="tableau-bord" class="grid grid-cols-4 w-full gap-x-4 mb-4">
         <div class="shadow-md rounded-md bg-white p-6 text-center">
           <h3 class="font-semibold text-[#39AEC0] text-2xl mb-5">Chiffres d'affaire</h3>
-          <span class="font-medium text-gray-600 text-xl">1750000 Ar</span>
+          <span class="font-medium text-gray-600 text-xl"><?= $chiffre ?> Ar</span>
         </div>
         <div class="shadow-md rounded-md bg-white p-6 text-center">
           <h3 class="font-semibold text-[#39AEC0] text-2xl mb-5">Nombres d'utilisateur</h3>
-          <span class="font-medium text-gray-600 text-xl">17 personnes</span>
+          <span class="font-medium text-gray-600 text-xl"><?= $nbruser ?> personnes</span>
+        </div>
+        <div class="shadow-md rounded-md bg-white p-6 text-center">
+          <h3 class="font-semibold text-[#39AEC0] text-2xl mb-5">Manatavy taolana</h3>
+          <span class="font-medium text-gray-600 text-xl"><?= $aug ?> personnes</span>
         </div>
         <div class="shadow-md rounded-md bg-white p-6 text-center">
           <h3 class="font-semibold text-[#39AEC0] text-2xl mb-5">Manihena taolana</h3>
-          <span class="font-medium text-gray-600 text-xl">12 personnes</span>
-        </div>
-        <div class="shadow-md rounded-md bg-white p-6 text-center">
-          <h3 class="font-semibold text-[#39AEC0] text-2xl mb-5">Manatavy tena</h3>
-          <span class="font-medium text-gray-600 text-xl">5 personnes</span>
+          <span class="font-medium text-gray-600 text-xl"><?= $red ?> personnes</span>
         </div>
       </div>
 

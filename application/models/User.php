@@ -70,7 +70,7 @@
 
             $result = $query->row_array();
 
-            return $result;
+            return $result["nbuser"];
         }
 
         public function countUserByObjectif($idObjectif) {
@@ -82,7 +82,7 @@
 
             $result = $query->row_array();
 
-            return $result;
+            return $result["nbuser"];
         }
 
         public function initialisePorteMonnaie($idUser) {
@@ -116,14 +116,14 @@
 
             $result = $query->row_array();
 
-            return $result;
+            return $result["chiffreaffaire"];
             
         }
 
         public function statistiqueParMontant() {
             $result = array();
 
-            $sql = "SELECT montant, dateachat FROM achatuser";
+            $sql = "SELECT avg(montant), dateachat FROM achatuser GROUP BY dateachat ORDER BY dateachat ASC";
 
             $query = $this->db->query($sql);
 
