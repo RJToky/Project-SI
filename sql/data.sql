@@ -116,3 +116,38 @@ insert into detailregime (idregime,idplat,idsport) values
 (5,5,2);
 
 insert into kgcalorie values (1,2000);
+
+insert into regimepersonne (iduser,idobjectif) values 
+(1,1),
+(2,1),
+(3,2),
+(4,2),
+(5,2);
+
+insert into code (numerocode,montantcode) values
+('ABC123',500000),
+('DEF456',750000),
+('GHI789',1000000),
+('JKL012',250000),
+('MNO345',300000),
+('PQR678',150000),
+('STU901',800000),
+('VWX234',60000),
+('YZA567',120000),
+('BCD890',40000),
+('EFG123',900000),
+('HIJ456',110000),
+('KLM789',70000),
+('NOP012',95000),
+('QRS345',550000);
+
+insert into codeuser (idcode,iduser,validitecode) values 
+(15,1,1);
+insert into codeuser (idcode,iduser,validitecode) values 
+(14,2,0);
+
+insert into portemonnaieuser (iduser,montant) values 
+(1,550000);
+
+insert into achatuser (iduser,montant,idregime,confirmationachat,dateachat) values 
+(1,40000,1,0,'2023-07-11');
