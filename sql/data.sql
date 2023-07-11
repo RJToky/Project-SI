@@ -149,5 +149,5 @@ insert into codeuser (idcode,iduser,validitecode) values
 insert into portemonnaieuser (iduser,montant) values 
 (1,550000);
 
-insert into achatuser (iduser,montant,idregime,confirmationachat) values 
-(1,40000,1,0);
+insert into achatuser (iduser,montant,idregime,confirmationachat,dateachat) values 
+(1,40000,1,0,'2023-07-11');

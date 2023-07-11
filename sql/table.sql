@@ -125,6 +125,7 @@ create table achatuser (
     montant float,
     idregime int,
     confirmationachat int,
+    dateachat date,
     foreign key (iduser) references users (iduser),
     foreign key (idregime) references regime (idregime)
 );
