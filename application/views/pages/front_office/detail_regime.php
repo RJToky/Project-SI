@@ -83,7 +83,7 @@
 	  		  		</span>
   			  		<span class="">Acheter</span>
             </a>
-            <a href="#" id="#" class="bg-[#24727e] hover:bg-[#2d8c9b] transition-all duration-300 w-full px-4 py-3 text-center font-semibold text-white text-md focus:outline-none">Exporter en pdf</a>
+            <a href="<?= base_url("C_Regime/detail_regime/" . $suggestion["idregime"]);?>" id="#" class="bg-[#24727e] hover:bg-[#2d8c9b] transition-all duration-300 w-full px-4 py-3 text-center font-semibold text-white text-md focus:outline-none">Exporter en pdf</a>
           </div>
           <input id="idregime" type="hidden" value="<?= $suggestion["idregime"] ?>">
         </div>
