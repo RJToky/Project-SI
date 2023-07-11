@@ -26,6 +26,7 @@ class C_Home extends CI_Controller {
 	public function wallet() {
 		$idUser = $this->session->userdata("id");
 		$data["solde"] = $this->user->getSolde($idUser);
+		$data["listecode"] =$this->code->getAllCode();
 
 		$kilo = abs(intval($this->user->getPoids($idUser)) - intval($this->user->getPoidsVisee($idUser)));
 
