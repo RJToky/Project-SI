@@ -30,3 +30,7 @@ join code on code.idcode = codeuser.idcode
 join users on users.iduser = codeuser.iduser;
 
 
+create or replace view v_objectifpersonne as
+select detailuser.iduser, detailuser.tailleuser, detailuser.poidsuser , detailuser.dateupdatedetailuser, regimepersonne.idobjectif
+from detailuser 
+join regimepersonne on regimepersonne.iduser = detailuser.iduser;
