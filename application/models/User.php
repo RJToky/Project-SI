@@ -120,6 +120,36 @@
             
         }
 
+        public function statistiqueParMontant() {
+            $result = array();
+
+            $sql = "SELECT montant, dateachat FROM achatuser";
+
+            $query = $this->db->query($sql);
+
+            foreach($query->result_array() as $row) {
+                $result [] = $row;
+            }
+
+            return $result;
+
+        }
+
+        public function statistiqueParPoids() {
+            $result = array();
+
+            $sql = "SELECT avg(poidsuser) as moyenne, dateupdatedetailuser FROM detailuser GROUP BY dateupdatedetailuser";
+
+            $query = $this->db->query($sql);
+
+            foreach($query->result_array() as $row) {
+                $result [] = $row;
+            }
+
+            return $result;
+
+        }
+
 
     }
 
