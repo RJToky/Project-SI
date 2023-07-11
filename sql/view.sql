@@ -41,12 +41,6 @@ create or replace view v_diffplatsport as
 select idobjectif, nomobjectif, idregime, nomregime, sum(apportcalorieplat) as calorieplat,sum(deficitcalorie) as caloriesport,(sum(apportcalorieplat)-sum(deficitcalorie)) as diffplatsport from v_platsportregime group by idregime,idobjectif,nomobjectif,nomregime;
 
 
-create or replace view v_codeuser as
-select code.numerocode,code.montantcode,users.nomuser,users.prenomuser,codeuser.validitecode
-from codeuser 
-join code on code.idcode = codeuser.idcode
-join users on users.iduser = codeuser.iduser;
-
 create or replace view v_derniertransaction as
 select achatuser.iduser, achatuser.montant, v_diffplatsport.idobjectif, v_diffplatsport.nomregime, achatuser.dateachat, v_diffplatsport.diffplatsport
 from achatuser

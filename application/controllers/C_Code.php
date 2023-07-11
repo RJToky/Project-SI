@@ -12,4 +12,12 @@ class C_Code extends CI_Controller {
         echo json_encode($statue);
     }
        
+    public function test() {
+        $data["test"] =  $this->code->validiteCode();
+
+        $statue = array('response' => 'success',
+                            'message' => $data['test']);
+
+        echo json_encode($statue);
+    }
 }

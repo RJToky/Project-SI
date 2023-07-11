@@ -270,10 +270,6 @@
             $this->db->query($sql);
         }
 
-        public function getPhoto($nature) {
-
-        }
-
     }
 
 ?>
