@@ -167,12 +167,14 @@
                 $plat = array(
                     "nature" => "plat",
                     "nom" => $row["nomplat"],
+                    "photo" => $row["photoplat"],
                     "apportcalorie" => $row["apportcalorieplat"]
                 );
 
                 $sport = array(
                     "nature" => "sport",
                     "nom" => $row["nomsport"],
+                    "photo" => $row["photosport"],
                     "deficitcalorie" => $row["deficitcalorie"]
                 );
 
@@ -229,6 +231,10 @@
             $sql = sprintf($sql, $idPrixRegime);
 
             $this->db->query($sql);
+        }
+
+        public function getPhoto($nature) {
+
         }
 
     }

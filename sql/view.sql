@@ -1,10 +1,26 @@
-create or replace view v_platsportregime as
-select detailregime.iddetailregime, detailregime.idregime, detailregime.idplat, plat.apportcalorieplat,plat.nomplat, regime.idobjectif, regime.nomregime,detailregime.idsport , sport.deficitcalorie, sport.nomsport,objectif.nomobjectif
-from detailregime
-join regime on regime.idregime = detailregime.idregime
-join plat on plat.idplat = detailregime.idplat
-join objectif on regime.idobjectif = objectif.idobjectif
-join sport on sport.idsport = detailregime.idsport;
+CREATE OR REPLACE VIEW v_platsportregime AS
+SELECT DISTINCT
+    detailregime.iddetailregime,
+    detailregime.idregime,
+    detailregime.idplat,
+    plat.apportcalorieplat,
+    plat.nomplat,
+    regime.idobjectif,
+    regime.nomregime,
+    detailregime.idsport,
+    sport.deficitcalorie,
+    sport.nomsport,
+    objectif.nomobjectif,
+    photoplat.photoplat,
+    photosport.photosport
+FROM
+    detailregime
+    JOIN regime ON regime.idregime = detailregime.idregime
+    JOIN plat ON plat.idplat = detailregime.idplat
+    JOIN objectif ON regime.idobjectif = objectif.idobjectif
+    JOIN sport ON sport.idsport = detailregime.idsport
+    JOIN photosport ON photosport.idsport = detailregime.idsport
+    JOIN photoplat ON photoplat.idplat = detailregime.idplat;
 
 
 create or replace view v_photoplat as 
