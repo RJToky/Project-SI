@@ -17,7 +17,7 @@
     <?php $this->load->view("partials/back_office/header"); ?>
 
     <div class="mt-4 flex flex-col items-center">
-      <h2 class="mb-10 text-3xl font-medium text-[#39AEC0]">Ajouter régime</h2>
+      <h2 class="mb-6 text-3xl font-medium text-[#39AEC0]">Ajouter régime</h2>
 
       <form id="form-add" class="w-[525px] shadow-xl rounded-lg  bg-white p-6" action="#" method="post">
         
