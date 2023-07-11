@@ -29,3 +29,8 @@ from codeuser
 join code on code.idcode = codeuser.idcode
 join users on users.iduser = codeuser.iduser;
 
+create or replace view v_derniertransaction as
+select achatuser.iduser, achatuser.montant, v_diffplatsport.idobjectif, v_diffplatsport.nomregime, achatuser.dateachat, v_diffplatsport.diffplatsport
+from achatuser
+join v_diffplatsport on v_diffplatsport.idregime = achatuser.idregime
+LIMIT 10;

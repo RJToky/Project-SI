@@ -138,7 +138,7 @@
         public function statistiqueParPoids() {
             $result = array();
 
-            $sql = "SELECT avg(poidsuser) as moyenne, dateupdatedetailuser FROM detailuser GROUP BY dateupdatedetailuser";
+            $sql = "SELECT avg(poidsuser) as moyenne, dateupdatedetailuser FROM detailuser GROUP BY dateupdatedetailuser ORDER BY dateupdatedetailuser ASC";
 
             $query = $this->db->query($sql);
 
@@ -148,6 +148,29 @@
 
             return $result;
 
+        }
+
+        public function dernierTransaction($idUser, $idObjectif, $kilo) {
+            $result = array();
+
+            $sql = "SELECT * FROM v_derniertransaction WHERE iduser = ";
+
+            $query = $this->db->query($sql);
+
+            foreach($query->result_array() as $row) {
+                $diff = abs(intval($row["diffplatsport"]));
+                $duree = $this->reg->calorieAPerdreouAGagner($kilo)/$diff;
+                
+                $regime = array(
+                    "montant" => $row["montant"],
+                    "idobjectif" => $row["idobjectif"],
+                    "duree" => ceil($duree),
+                    "nomregime" => $row["nomregime"],
+                    "dateachat" => $row["dateachat"]
+                );
+
+                array_push($result, $regime);
+            }
         }
 
 
