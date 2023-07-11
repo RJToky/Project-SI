@@ -125,6 +125,28 @@
 
        }
 
+
+       public function getPoidsMoyenByDate ($idObjectif) {
+          $result = array();
+
+          $sql = "SELECT * FROM v_poidsmoyen WHERE idobjectif = %d";
+
+          $sql = sprintf($sql, $idObjectif);
+
+          $query = $this->db->query($sql);
+
+          foreach($query->result_array() as $row) {
+
+              $poidsdate = array(
+                  "poidsmoyen" => $row["poidsmoyen"],
+                  "dateupdatedetailuser" => $row["dateupdatedetailuser"]
+              );
+
+              array_push($result, $poidsdate);
+          }
+
+          return $poidsdate;
+     }
        
 
     }
