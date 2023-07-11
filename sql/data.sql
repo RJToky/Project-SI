@@ -117,12 +117,12 @@ insert into detailregime (idregime,idplat,idsport) values
 
 insert into kgcalorie values (1,2000);
 
-insert into regimepersonne (iduser,idobjectif,poidsvisee) values 
-(1,1,52),
-(2,1,57),
-(3,2,54),
-(4,2,51),
-(5,2,48);
+insert into regimepersonne (iduser,idobjectif,poidsvise) values 
+(1,1,2),
+(2,1,7),
+(3,2,4),
+(4,2,10),
+(5,2,8);
 
 insert into code (numerocode,montantcode) values
 ('ABC123',500000),
