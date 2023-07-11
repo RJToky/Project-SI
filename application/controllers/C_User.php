@@ -107,6 +107,25 @@ class C_User extends CI_Controller {
         echo json_encode($statue);
     }
 
+    public function insertAchat($idregime) {
+        $idUser = $this->session->userdata("id");
+        
+        $idobjectif = $this->obj->getIdObjectifByUser($idUser);
+		$kiloUser = $this->user->getDetailUser($idUser)["poidsuser"];
+        
+        $solde = $this->user->getSolde($idUser);
+		$prix = $this->reg->dureeByIdRegime($idobjectif, $kiloUser, $idregime)["prix"];
+
+        if($solde >= $prix) {
+            $this->user->updatePorteMonnaie($idUser, $solde - $prix);
+            $this->user->achatUser($idUser, $solde, $idregime);
+            $status = array("response" => "success", "message" => "Achat réussi");
+
+        } else {
+            $status = array("response" => "error", "message" => "Votre solde est " . $solde . " Ar, veuillez faire un depôt");
+        }
+        echo json_encode($status);
+    }
 
     public function endSession(){
         $this->session->unset_userdata('id');        
