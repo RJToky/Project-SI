@@ -76,9 +76,10 @@
           <p class="text-gray-600 font-semibold">&rarr; <?= $suggestion["prix"]; ?> Ar</p>
 
           <div class="mt-4 flex flex-col gap-4">
-            <a href="#" class="bg-[#39AEC0] hover:bg-[#40c4d8] transition-all duration-300 w-full px-4 py-3 text-center font-semibold text-white text-md focus:outline-none">Acheter</a>
-            <a href="#" class="bg-[#24727e] hover:bg-[#2d8c9b] transition-all duration-300 w-full px-4 py-3 text-center font-semibold text-white text-md focus:outline-none">Exporter en pdf</a>
+            <a href="#" id="btn-buy" class="bg-[#39AEC0] hover:bg-[#40c4d8] transition-all duration-300 w-full px-4 py-3 text-center font-semibold text-white text-md focus:outline-none">Acheter</a>
+            <a href="#" id="#" class="bg-[#24727e] hover:bg-[#2d8c9b] transition-all duration-300 w-full px-4 py-3 text-center font-semibold text-white text-md focus:outline-none">Exporter en pdf</a>
           </div>
+          <input type="hidden" value="<?= $suggestion["idregime"] ?>" name="idregime">
         </div>
       </div>
 
@@ -86,5 +87,39 @@
 
     
   </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(() => {
+			$("#btn-buy").click((e) => {
+				e.preventDefault();
+				$("#btn-submit span:nth-child(1)").removeClass("hidden");
+				$("#btn-submit span:nth-child(2)").addClass("hidden");
+				var formData = new FormData(document.getElementById("form-register"));
+
+				$.ajax({
+					method: "POST",
+					url: "<?= base_url("C_User/inscription") ?>",
+					data: formData,
+					processData: false,
+					contentType: false,
+					success: (response) => {
+						let res = JSON.parse(response);
+						if(res.response === "success") {
+							window.location.href = "<?= base_url("C_User/completion") ?>";
+						} else if (res.response === "error") {
+							$("#message-error").text(res.message);
+							$("#toast-danger").removeClass("hidden");
+						}
+						$("#btn-submit span:nth-child(1)").addClass("hidden");
+						$("#btn-submit span:nth-child(2)").removeClass("hidden");
+					},
+				});
+			});
+
+			$("#button-close").click(() => {
+				$("#toast-danger").addClass("hidden");
+			});
+		});
+	</script>
 </body>
 </html>
