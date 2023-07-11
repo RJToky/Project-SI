@@ -73,6 +73,17 @@
             return $result["nbuser"];
         }
 
+        public function getRegimePersonne($idUser) {
+            $sql = "SELECT * FROM regimepersonne WHERE iduser = %d";
+
+            $sql = sprintf($sql, $idUser);
+
+            $query = $this->db->query($sql);
+
+            return $query->row_array();
+
+        }
+
         public function countUserByObjectif($idObjectif) {
             $sql = "SELECT count(iduser) as nbuser FROM regimepersonne WHERE idobjectif = %d";
 
@@ -150,7 +161,7 @@
 
         }
 
-        public function dernierTransaction($idUser, $kilo) {
+        public function dernierTransaction($idUser, $idObjectif, $kilo) {
             $result = array();
 
             $sql = "SELECT * FROM v_derniertransaction WHERE iduser = %d";
@@ -191,18 +202,6 @@
             return $result;
         }
 
-        public function getRegimePersonne($iduser) {
-            $sql = "SELECT * FROM regimepersonne WHERE iduser = %d";
-
-            $sql = sprintf($sql, $iduser);
-
-            $query = $this->db->query($sql);
-
-            $result = $query->row_array();
-
-            return $result;
-        }
-
         public function getSolde($iduser) {
             $sql = "SELECT * FROM portemonnaieuser WHERE iduser = %d";
 
@@ -213,31 +212,6 @@
             $result = $query->row_array();
 
             return $result["montant"];
-        }
-
-        public function getPoids($iduser) {
-            $sql = "SELECT poidsuser FROM detailuser WHERE iduser = %d";
-
-            $sql = sprintf($sql, $iduser);
-
-            $query = $this->db->query($sql);
-
-            $result = $query->row_array();
-
-            return $result["poidsuser"];
-        }
-
-        
-        public function getPoidsVisee($iduser) {
-            $sql = "SELECT poidsvisee FROM regimepersonne WHERE iduser = %d";
-
-            $sql = sprintf($sql, $iduser);
-
-            $query = $this->db->query($sql);
-
-            $result = $query->row_array();
-
-            return $result["poidsvisee"];
         }
 
 

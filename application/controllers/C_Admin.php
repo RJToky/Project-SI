@@ -48,7 +48,7 @@ class C_Admin extends CI_Controller {
 		$data["nbuserbota"] = $nbUserBota;
 		$data["nbusermahia"] = $nbUserMahia;
 
-		var_dump($data);
+		// var_dump($data);
 					
 		//$this->load->view('pages/back_office/index', $data);
 	}
