@@ -18,12 +18,12 @@
 
         <div class="px-4 flex flex-col gap-2 sm:col-span-2">
           <label class="text-gray-500 text-lg font-semibold">Entrer votre email:</label>
-          <input required name="mail" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
+          <input value="admin@gmail.com" required name="mail" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
         </div>
 
         <div class="px-4 flex flex-col gap-2 sm:col-span-2">
           <label class="text-gray-500 text-lg font-semibold">Entrer votre mot de passe:</label>
-          <input required name="mdp" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
+          <input value="admin" required name="mdp" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
         </div>
 
         <div class="px-4 sm:col-span-2">

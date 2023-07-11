@@ -24,11 +24,11 @@
 		<form id="form-login" class="flex flex-col w-1/2" action="#" method="post">
 			<div class="p-4 flex flex-col gap-2">
 				<label class="text-gray-500 text-lg font-semibold">Entrer votre email:</label>
-				<input required name="mail" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
+				<input value="sarah90fit@gmail.com" required name="mail" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="email" placeholder="example@example.com">
 			</div>
 			<div class="p-4 flex flex-col gap-2">
 				<label class="text-gray-500 text-lg font-semibold">Entrer votre mot de passe:</label>
-				<input required name="mdp" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
+				<input value="sarah13" required name="mdp" class="w-full text-lg h-12 px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="password" placeholder="Mot de passe">
 			</div>
 			<div class="p-4">
 				<button id="btn-submit" type="submit" class="hover:bg-[#40c4d8] transition-all duration-300 w-full h-12 px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">

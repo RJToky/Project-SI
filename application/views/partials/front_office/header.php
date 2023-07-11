@@ -3,7 +3,6 @@
   <nav class="flex mr-4 gap-4">
     <a href="<?= base_url("C_Home/index"); ?>" class="text-gray-500 font-medium hover:text-[#39AEC0]">Suggestions</a>
     <a href="<?= base_url("C_Home/wallet"); ?>" class="text-gray-500 font-medium hover:text-[#39AEC0]">Porte Monnaie</a>
-    <a href="#" class="text-gray-500 font-medium hover:text-[#39AEC0]">Contact</a>
   </nav>
   <a href="#" id="profil" class="flex gap-4 items-center mr-4 px-5 py-2 bg-gray-100 rounded-full text-gray-600">
     <span class="w-7 h-7">

@@ -71,22 +71,19 @@
           const graphe2 = document.getElementById("graphe-2").getContext('2d');
 
           const xValues = [50,60,70,80,90,100,110,120,130,140,150];
+          const yValues = [7,8,8,9,9,9,10,11,14,14,15];
+
 
           new Chart(graphe1, {
-            type: "line",
-            data: {
-              labels: xValues,
-              datasets: [{
-                data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
-                borderColor: "#111622",
-                fill: false
-              },{
-                data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
-                borderColor: "#39AEC0",
-                fill: false
-              }]
-            },
-          });
+          type: "line",
+          data: {
+            labels: xValues,
+            datasets: [{
+              borderColor: "#111622",
+              data: yValues
+            }]
+          },
+        });
 
           new Chart(graphe2, {
             type: "line",

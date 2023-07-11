@@ -4,7 +4,6 @@
     <a href="<?= base_url("C_Admin/index") ?>" class="pl-6 font-normal py-3 text-lg text-gray-600 hover:bg-gray-100">Accueil</a>
     <a href="<?= base_url("C_Admin/code") ?>" class="pl-6 font-normal py-3 text-lg text-gray-600 hover:bg-gray-100">Code porte monnaie</a>
     <a href="<?= base_url("C_Admin/regime") ?>" class="pl-6 font-normal py-3 text-lg text-gray-600 hover:bg-gray-100">Régime</a>
-    <a href="<?= base_url("C_Admin/activite_sportive") ?>" class="pl-6 font-normal py-3 text-lg text-gray-600 hover:bg-gray-100">Activité sportive</a>
   </nav>
 </div>
 
