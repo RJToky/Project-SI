@@ -104,7 +104,7 @@
                 <div class="px-8 py-6 lg:px-8">
 
                   <div class="relative overflow-x-auto">
-                    <h2 class="mb-3 text-xl font-medium text-[#39AEC0]">Liste des derniers transactions</h2>
+                    <h2 class="mb-3 text-xl font-medium text-[#39AEC0]">Liste des codes</h2>
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
