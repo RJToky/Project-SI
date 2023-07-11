@@ -14,4 +14,8 @@ class C_Home extends CI_Controller {
 	public function detail_regime($idregime) {
 		$this->load->view("pages/front_office/detail_regime");
 	}
+
+	public function wallet() {
+		$this->load->view('pages/front_office/wallet');
+	}
 }
