@@ -8,15 +8,17 @@ join sport on sport.idsport = detailregime.idsport;
 
 
 create or replace view v_photoplat as 
-select photoplat.photoplat
+select photoplat.photoplat,v_platsportregime.idregime,plat.nomplat
 from photoplat 
-join v_platsportregime on v_platsportregime.idplat = photoplat.idplat;
+join v_platsportregime on v_platsportregime.idplat = photoplat.idplat
+join plat on plat.idplat = photoplat.idplat;
 
 
 create or replace view v_photosport as 
-select photosport.photosport
+select photosport.photosport,v_platsportregime.idregime,sport.nomsport
 from photosport 
-join v_platsportregime on v_platsportregime.idsport = photosport.idsport;
+join v_platsportregime on v_platsportregime.idsport = photosport.idsport
+join sport on sport.idsport = photosport.idsport;
 
 
 create or replace view v_diffplatsport as

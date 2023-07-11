@@ -73,6 +73,17 @@
             return $result["nbuser"];
         }
 
+        public function getRegimePersonne($idUser) {
+            $sql = "SELECT * FROM regimepersonne WHERE iduser = %d";
+
+            $sql = sprintf($sql, $idUser);
+
+            $query = $this->db->query($sql);
+
+            return $query->row_array();
+
+        }
+
         public function countUserByObjectif($idObjectif) {
             $sql = "SELECT count(iduser) as nbuser FROM regimepersonne WHERE idobjectif = %d";
 
@@ -153,7 +164,9 @@
         public function dernierTransaction($idUser, $idObjectif, $kilo) {
             $result = array();
 
-            $sql = "SELECT * FROM v_derniertransaction WHERE iduser = ";
+            $sql = "SELECT * FROM v_derniertransaction WHERE iduser = %d";
+
+            $sql = sprintf($sql, $idUser);
 
             $query = $this->db->query($sql);
 
@@ -171,6 +184,12 @@
 
                 array_push($result, $regime);
             }
+
+            return $result;
+
+        }
+
+
         public function getDetailUser($iduser) {
             $sql = "SELECT * FROM detailuser WHERE iduser = %d";
 

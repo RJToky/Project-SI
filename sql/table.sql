@@ -34,7 +34,7 @@ create table plat (
 );
 
 create table photoplat (
-    idplat serial primary key,
+    idplat int,
     photoplat varchar,
     foreign key (idplat) references plat (idplat)
 );
@@ -46,7 +46,7 @@ create table sport (
 );
 
 create table photosport (
-    idsport serial primary key,
+    idsport int,
     photosport varchar,
     foreign key (idsport) references sport (idsport)
 );
