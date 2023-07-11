@@ -122,8 +122,9 @@ create table portemonnaieuser (
 create table achatuser (
     idachatuser serial primary key,
     iduser int,
+    montant float,
     idregime int,
-    confiramtionachat int,
+    confirmationachat int,
     foreign key (iduser) references users (iduser),
     foreign key (idregime) references regime (idregime)
 );
