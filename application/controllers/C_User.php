@@ -18,11 +18,18 @@ class C_User extends CI_Controller {
                             'message' => 'Aucun utilisateur correspondant');
         
         }
-        else{
-            $statue = array('response' => 'success',
-                            'message' => $data['user']);
+        else {
             $this->session->set_userdata('id',$data['user']['iduser']);
             $this->session->set_userdata('prenom',$data['user']['prenomuser']);
+
+            if($this->user->has_done_completion($data['user']['iduser'])) {
+                $statue = array(
+                    'response' => 'success',
+                    'message' => $data['user']
+                );
+            } else {
+                $statue = array('response' => 'redirect');
+            }
         }
 
         echo json_encode($statue);
@@ -42,6 +49,9 @@ class C_User extends CI_Controller {
             $this->user->insertUser($nom, $prenom, $genre, $dtn, $mail, $mdp);
             $idUser = $this->user->getIdLastUser()["idlastuser"];
 
+            $this->session->set_userdata('id',$idUser);
+            $this->session->set_userdata('prenom',$prenom);
+
             $this->user->initialisePorteMonnaie($idUser);
             $statue = array('response' => 'success',
                             'message' => 'Insertion avec success');
@@ -58,7 +68,7 @@ class C_User extends CI_Controller {
     }
 
     public function detailsInscription() {
-        $idUser = $this->user->getIdLastUser()["idlastuser"];
+        $idUser = $this->session->userdata("id");
         $taille = intval($this->input->post('taille'));
         $poids = intval($this->input->post('poids'));
         $objectif = intval($this->input->post('objectif'));
@@ -105,6 +115,26 @@ class C_User extends CI_Controller {
         }
 
         echo json_encode($statue);
+    }
+
+    public function insertAchat($idregime) {
+        $idUser = $this->session->userdata("id");
+        
+        $idobjectif = $this->obj->getIdObjectifByUser($idUser);
+		$kiloUser = $this->user->getDetailUser($idUser)["poidsuser"];
+        
+        $solde = $this->user->getSolde($idUser);
+		$prix = $this->reg->dureeByIdRegime($idobjectif, $kiloUser, $idregime)["prix"];
+
+        if($solde >= $prix) {
+            $this->user->updatePorteMonnaie($idUser, $solde - $prix);
+            $this->user->achatUser($idUser, $solde, $idregime);
+            $status = array("response" => "success", "message" => "Achat réussi");
+
+        } else {
+            $status = array("response" => "error", "message" => "Votre solde est " . $solde . " Ar, veuillez faire un depôt");
+        }
+        echo json_encode($status);
     }
 
 

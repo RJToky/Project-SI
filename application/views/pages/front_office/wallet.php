@@ -15,8 +15,9 @@
 
     <div class="mb-10">
       <h2 class="mb-3 text-xl font-medium text-[#39AEC0]">Mon solde</h2>
-      <div class="flex gap-4">
+      <div class="flex gap-4 items-center">
 
+      <div class="flex gap-4">
         <div class="text-gray-400 text-3xl shadow p-5 rounded">
           <?= $solde ?> Ar
         </div>
@@ -32,6 +33,11 @@
           </button>
 
         </form>
+      </div>
+        
+        <button data-modal-target="modal-list-code" data-modal-toggle="modal-list-code" class="ml-4 h-12 px-4 py-2 text-[#39AEC0] transition-all duration-300  font-bold hover:bg-[#39aec018] border border-[#39AEC0]">
+            Voir liste code
+        </button>
 
       </div>
     </div>
@@ -45,7 +51,7 @@
                         Nom régime
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Objet
+                        Objectif
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Durée
@@ -59,44 +65,72 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Papaye à la tantely
-                    </th>
-                    <td class="px-6 py-4">
-                        +5 poids
-                    </td>
-                    <td class="px-6 py-4">
-                        7 jours
-                    </td>
-                    <td class="px-6 py-4">
-                        12/12/2012
-                    </td>
-                    <td class="px-6 py-4">
-                        100000 Ar
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Papaye à la tantely
-                    </th>
-                    <td class="px-6 py-4">
-                        +5 poids
-                    </td>
-                    <td class="px-6 py-4">
-                        7 jours
-                    </td>
-                    <td class="px-6 py-4">
-                        12/12/2012
-                    </td>
-                    <td class="px-6 py-4">
-                        100000 Ar
-                    </td>
-                </tr>
+                <?php for($i = 0; $i < count($transactions); $i++) { ?>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <?= $transactions[$i]["nomregime"] ?>
+                        </th>
+                        <td class="px-6 py-4">
+                            <?php if($transactions[$i]["idobjectif"] == 1) { echo "Poids +"; } else { echo "Poids -"; } ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?= $transactions[$i]["duree"] ?> jours
+                        </td>
+                        <td class="px-6 py-4">
+                        <?= $transactions[$i]["dateachat"] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                        <?= $transactions[$i]["montant"] ?> Ar
+                        </td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
 
   </main>
+
+    <div id="modal-list-code" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative">
+            <!-- Modal content -->
+            <div class="relative w-[500px] bg-white rounded-lg shadow dark:bg-gray-700">
+                <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-list-code">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+
+                <div class="px-8 py-6 lg:px-8">
+
+                  <div class="relative overflow-x-auto">
+                    <h2 class="mb-3 text-xl font-medium text-[#39AEC0]">Liste des derniers transactions</h2>
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Code
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Montant
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        123021983109
+                                    </th>
+                                    <td class="px-6 py-4">
+                                         10000 Ar
+                                    </td>
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 </body>
 </html>

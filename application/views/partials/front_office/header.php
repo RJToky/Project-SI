@@ -5,7 +5,14 @@
     <a href="<?= base_url("C_Home/wallet"); ?>" class="text-gray-500 font-medium hover:text-[#39AEC0]">Porte Monnaie</a>
     <a href="#" class="text-gray-500 font-medium hover:text-[#39AEC0]">Contact</a>
   </nav>
-  <a href="#" id="profil" class="mr-4 px-5 py-2 bg-gray-100 rounded-full text-gray-600"><?= $this->session->userdata("prenom") ?></a>
-  <a href="<?= base_url("C_Admin/deconnection") ?>" class="bg-[#39AEC0] hover:bg-[#40c4d8] transition-all duration-300 text-white px-5 py-2">Déconnexion</a>
+  <a href="#" id="profil" class="flex gap-4 items-center mr-4 px-5 py-2 bg-gray-100 rounded-full text-gray-600">
+    <span class="w-7 h-7">
+      <img class="w-7" src="<?= base_url("assets/img/user-5-svgrepo-com.svg") ?>" alt="">
+    </span>
+    <span class="text-lg">
+      <?= $this->session->userdata("prenom") ?>
+    </span>
+  </a>
+  <a href="<?= base_url("C_Home/deconnection") ?>" class="bg-[#39AEC0] hover:bg-[#40c4d8] transition-all duration-300 text-white px-5 py-2">Déconnexion</a>
 </header>
 <div class="h-[64px] w-full"></div>

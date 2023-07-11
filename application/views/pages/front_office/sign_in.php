@@ -76,8 +76,13 @@
 					contentType: false,
 					success: (response) => {
 						let res = JSON.parse(response);
+						console.log(res);
 						if(res.response === "success") {
 							window.location.href = "<?= base_url("C_Home") ?>";
+
+						} else if(res.response === "redirect") {
+							window.location.href = "<?= base_url("C_User/completion") ?>";
+
 						} else if (res.response === "error") {
 							$("#message-error").text(res.message);
 							$("#toast-danger").removeClass("hidden");
