@@ -39,5 +39,11 @@ class C_Regime extends CI_Controller {
         echo json_encode($statue);
     }
 
+    public function detail_regime($idregime) {
+		$data["detail"] = $this->reg->listePlatSportByRegime($idregime);
+		
+		$this->load->view("pages/front_office/uploadfile", $data);
+	}
+
        
 }
