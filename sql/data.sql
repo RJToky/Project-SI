@@ -133,22 +133,22 @@ insert into regimepersonne (iduser,idobjectif,poidsvisee) values
 (4,2,10),
 (5,2,8);
 
-insert into code (numerocode,montantcode) values
-('ABC123',500000),
-('DEF456',750000),
-('GHI789',1000000),
-('JKL012',250000),
-('MNO345',300000),
-('PQR678',150000),
-('STU901',800000),
-('VWX234',60000),
-('YZA567',120000),
-('BCD890',40000),
-('EFG123',900000),
-('HIJ456',110000),
-('KLM789',70000),
-('NOP012',95000),
-('QRS345',550000);
+insert into code (numerocode,montantcode, statu) values
+('ABC123',500000, 2),
+('DEF456',750000, 2),
+('GHI789',1000000, 2),
+('JKL012',250000, 2),
+('MNO345',300000, 2),
+('PQR678',150000, 2),
+('STU901',800000, 2),
+('VWX234',60000, 2),
+('YZA567',120000, 2),
+('BCD890',40000, 2),
+('EFG123',900000, 2),
+('HIJ456',110000, 2),
+('KLM789',70000, 2),
+('NOP012',95000, 2),
+('QRS345',550000, 2);
 
 insert into codeuser (idcode,iduser,validitecode) values 
 (15,1,1);

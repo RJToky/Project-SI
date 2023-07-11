@@ -2,15 +2,6 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
 
     class Code extends CI_Model {
-        
-        public function updateCode($idCode) {
-            $sql = "UPDATE code SET validitecode = 1 WHERE idcode = %d";
-
-            $sql = sprintf($sql, $idCode);
-
-            $this->db->query($sql);
-
-        }
 
         public function getAllCode() {
             $result = array();
@@ -36,10 +27,10 @@
             return $query->row_array();
         }
 
-        public function validateCodeUser($idUser,$idCode) {
-            $sql = "UPDATE codeuser SET validitecode = 1 WHERE iduser = %d AND idcode = %d";
+        public function updateCode($idCode, $statu) {
+            $sql = "UPDATE code SET statu = %d WHERE idcode = %d";
 
-            $sql = sprintf($sql, $idUser, $idCode);
+            $sql = sprintf($sql, $statu, $idCode);
 
             $this->db->query($sql);
         }
