@@ -117,14 +117,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php for($i = 0; $i < count($listecode); $i++) { ?>
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        123021983109
+                                        <?= $listecode[$i]["numerocode"] ?>
                                     </th>
                                     <td class="px-6 py-4">
-                                         10000 Ar
+                                        <?= $listecode[$i]["montantcode"] ?> Ar
                                     </td>
                                 </tr>
+                                <?php } ?>
                             </tbody>
                     </table>
                 </div>
