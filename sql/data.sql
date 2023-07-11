@@ -146,3 +146,6 @@ insert into codeuser (idcode,iduser,validitecode) values
 
 insert into portemonnaieuser (iduser,montant) values 
 (1,550000);
+
+insert into achatuser (iduser,idregime,confiramtionachat) values 
+(1,1,0);
