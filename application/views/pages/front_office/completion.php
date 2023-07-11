@@ -12,26 +12,26 @@
 <body class="h-full flex bg-gray-100">
 	<div class="container flex items-center justify-center mx-auto flex-col">
 		<h2 class="text-[#39AEC0] text-5xl font-bold mb-8">Completion du profil</h2>
-		<form id="form-completion" class="mx-auto w-2/5" action="#" method="post">
+		<form id="form-completion" class="mx-auto lg:w-1/3 md:w-2/3 w-full" action="#" method="post">
 
       <div class="rounded-lg p-5 bg-white shadow-xl grid grid-cols-1 gap-x-1 gap-y-6 sm:grid-cols-2">
 
-        <div class="p-4 flex flex-col gap-2 sm:col-span-2">
+        <div class="px-4 flex flex-col gap-2 sm:col-span-2">
           <label class="text-gray-500 text-lg font-semibold">Entrer votre taille:</label>
           <input required name="taille" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="number" placeholder="180 mètres">
         </div>
 
-        <div class="p-4 flex flex-col gap-2">
+        <div class="px-4 flex flex-col gap-2">
           <label class="text-gray-500 text-lg font-semibold">Entrer votre poids:</label>
           <input required name="poids" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="number" placeholder="50 Kg">
         </div>
 
-				<div class="p-4 flex flex-col gap-2">
+				<div class="px-4 flex flex-col gap-2">
           <label class="text-gray-500 text-lg font-semibold">Objectif:</label>
           <input required name="objectif" class="w-full text-lg px-6 py-2 rounded-full bg-[#F6F6F6] focus:outline-none text-gray-500" type="number" placeholder="55 Kg">
         </div>
 
-        <div class="p-4 sm:col-span-2">
+        <div class="px-4 sm:col-span-2">
           <button id="btn-submit" type="submit" class="hover:bg-[#40c4d8] transition-all duration-300 w-full px-4 py-2 rounded-full bg-[#39AEC0] text-center font-semibold text-white text-lg focus:outline-none">
             <span class="hidden flex justify-center items-center">
               <div class="animate-spin rounded-full h-8 w-8 border-r-2 border-b-4 border-white"></div>
