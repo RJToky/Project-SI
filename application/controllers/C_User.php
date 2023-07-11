@@ -45,8 +45,6 @@ class C_User extends CI_Controller {
             $this->user->initialisePorteMonnaie($idUser);
             $statue = array('response' => 'success',
                             'message' => 'Insertion avec success');
-                            
-            redirect(base_url("C_User/completion"));
         } else if ($mdp != $confirm) {
             $statue = array('response' => 'error',
                             'message' => 'Veuillez confirmer votre mot de passe');
@@ -91,6 +89,25 @@ class C_User extends CI_Controller {
 
     }
 
+    public function dernierTransaction() {
+        $idUser = $this->session->userdata('id');
+        $idObjectif = intval($this->input->post('idObjectif'));
+        $kilo = intval($this->input->post('kilo'));
+
+        $data["transaction"] = $this->user->dernierTransaction(1, $idObjectif, $kilo);
+
+        if(($idObjectif == 0 || $kilo == 0) || (($idObjectif == 0 && $kilo == 0))) {
+            $statue = array('response' => 'error',
+                            'message' => 'Vérifier vos données');
+        } else {
+            $statue = array('response' => 'success',
+                            'message' => $data["transaction"]);
+        }
+
+        echo json_encode($statue);
+    }
+
+
     public function endSession(){
         $this->session->unset_userdata('id');        
     }
@@ -105,25 +122,5 @@ class C_User extends CI_Controller {
     
     public function objectif() {
         $this->load->view("pages/front_office/objectif");
-    }
-
-    public function insertAchat($idregime) {
-        $idUser = $this->session->userdata("id");
-        
-        $idobjectif = $this->obj->getIdObjectifByUser($idUser);
-		$kiloUser = $this->user->getDetailUser($idUser)["poidsuser"];
-        
-        $solde = $this->user->getSolde($idUser);
-		$prix = $this->reg->dureeByIdRegime($idobjectif, $kiloUser, $idregime)["prix"];
-
-        if($solde >= $prix) {
-            $this->user->updatePorteMonnaie($idUser, $solde - $prix);
-            $this->user->achatUser($idUser, $solde, $idregime);
-            $status = array("response" => "success", "message" => "Achat réussi");
-
-        } else {
-            $status = array("response" => "error", "message" => "Veuillez verifier votre solde " . $solde);
-        }
-        echo json_encode($status);
     }
 }

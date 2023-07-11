@@ -73,6 +73,17 @@
             return $result["nbuser"];
         }
 
+        public function getRegimePersonne($idUser) {
+            $sql = "SELECT * FROM regimepersonne WHERE iduser = %d";
+
+            $sql = sprintf($sql, $idUser);
+
+            $query = $this->db->query($sql);
+
+            return $query->row_array();
+
+        }
+
         public function countUserByObjectif($idObjectif) {
             $sql = "SELECT count(iduser) as nbuser FROM regimepersonne WHERE idobjectif = %d";
 
@@ -138,7 +149,7 @@
         public function statistiqueParPoids() {
             $result = array();
 
-            $sql = "SELECT avg(poidsuser) as moyenne, dateupdatedetailuser FROM detailuser GROUP BY dateupdatedetailuser";
+            $sql = "SELECT avg(poidsuser) as moyenne, dateupdatedetailuser FROM detailuser GROUP BY dateupdatedetailuser ORDER BY dateupdatedetailuser ASC";
 
             $query = $this->db->query($sql);
 
@@ -149,6 +160,35 @@
             return $result;
 
         }
+
+        public function dernierTransaction($idUser, $idObjectif, $kilo) {
+            $result = array();
+
+            $sql = "SELECT * FROM v_derniertransaction WHERE iduser = %d";
+
+            $sql = sprintf($sql, $idUser);
+
+            $query = $this->db->query($sql);
+
+            foreach($query->result_array() as $row) {
+                $diff = abs(intval($row["diffplatsport"]));
+                $duree = $this->reg->calorieAPerdreouAGagner($kilo)/$diff;
+                
+                $regime = array(
+                    "montant" => $row["montant"],
+                    "idobjectif" => $row["idobjectif"],
+                    "duree" => ceil($duree),
+                    "nomregime" => $row["nomregime"],
+                    "dateachat" => $row["dateachat"]
+                );
+
+                array_push($result, $regime);
+            }
+
+            return $result;
+
+        }
+
 
         public function getDetailUser($iduser) {
             $sql = "SELECT * FROM detailuser WHERE iduser = %d";
