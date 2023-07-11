@@ -75,14 +75,14 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'postgres',
-	'password' => 'root',
-	'database' => 'asiorezim',
-//	'hostname' => 'postgresql-asiorezim.alwaysdata.net',
-//	'username' => 'asiorezim',
-//	'password' => 'root1822',
-//	'database' => 'asiorezim_a',
+	// 'hostname' => 'localhost',
+	// 'username' => 'postgres',
+	// 'password' => 'root',
+	// 'database' => 'asiorezim',
+	'hostname' => 'postgresql-asiorezim.alwaysdata.net',
+	'username' => 'asiorezim',
+	'password' => 'root1822',
+	'database' => 'asiorezim_a',
 
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
