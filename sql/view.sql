@@ -63,3 +63,8 @@ create or replace view v_poidsmoyen as
 select avg(poidsuser) as poidsmoyen, detailuser.dateupdatedetailuser , regimepersonne.idobjectif
 from detailuser 
 join regimepersonne on regimepersonne.iduser = detailuser.iduser group by detailuser.dateupdatedetailuser,regimepersonne.idobjectif order by detailuser.dateupdatedetailuser ASC;
+
+
+create or replace view imc as
+select iduser,poidsuser/((tailleuser/100)*(tailleuser/100)) as resultatimc
+from detailuser;
