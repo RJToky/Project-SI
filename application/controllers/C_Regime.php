@@ -22,8 +22,21 @@ class C_Regime extends CI_Controller {
 
     }
 
-    public function test() {
-        var_dump($this->reg->getPrixRegime(intval($this->input->post('idObjectif'))));
+    public function detailRegime() {
+
+        $idRegime = intval($this->input->post('idRegime'));
+
+        $data["detail"] = $this->reg->listePlatSportByRegime($idRegime);
+
+        if($data["detail"] == null) {
+            $statue = array('response' => 'error',
+                            'message' => 'IdRegime invalide');
+        } else {
+            $statue = array('response' => 'success',
+                            'message' => $data["detail"]);
+        }
+
+        echo json_encode($statue);
     }
 
        

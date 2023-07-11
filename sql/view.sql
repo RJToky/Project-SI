@@ -1,5 +1,5 @@
 create or replace view v_platsportregime as
-select detailregime.iddetailregime, detailregime.idregime, detailregime.idplat, plat.apportcalorieplat,plat.nomplat,regime.idobjectif, regime.nomregime, detailregime.idsport,sport.deficitcalorie,sport.nomsport, objectif.nomobjectif
+select detailregime.iddetailregime, detailregime.idregime, detailregime.idplat, plat.apportcalorieplat,plat.nomplat, regime.idobjectif, regime.nomregime,detailregime.idsport , sport.deficitcalorie, sport.nomsport,objectif.nomobjectif
 from detailregime
 join regime on regime.idregime = detailregime.idregime
 join plat on plat.idplat = detailregime.idplat
